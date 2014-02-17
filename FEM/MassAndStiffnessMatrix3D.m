@@ -1,7 +1,7 @@
 function [A M] = MassAndStiffnessMatrix3D(tet,p,Cp,Cs,rhop,rhos)
 N = size(tet,1);
 dim = size(p,1);
-Np = sum(tet(:,4)==62);
+Np = sum(tet(:,5)==62);
 
 A =sparse(3*dim,3*dim);
 M = sparse(3*dim,3*dim);
