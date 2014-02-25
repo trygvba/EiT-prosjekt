@@ -11,7 +11,7 @@ vp = 0.46;
 rhop = 950;
 
 %Silver:
-Es = 72.4*10^9
+Es = 72.4*10^9;
 vs = 0.37;
 rhos = 10*10^3;
 
@@ -34,11 +34,48 @@ u = V(:,n);
 
 alpha=1;
 
-%Converting to prefered data structure:
-for i = 1:3:length(u)
-	uvec(ceil(i/3),:) = [u(i) u(i+1) u(i+2)];
-    mag(ceil(i/3),:) = (u(i)^2+u(i+1)^2+u(i+2)^2)^0.5;
+
+%Newmark 2beta method
+steps=100;
+[sz kuk]=size(u);
+dt=1/steps;
+U=zeros(sz,steps);
+beta=0.25;
+
+K1=M/A;
+K2=inv(eye(sz) - beta*dt^2*K1); 
+
+%Initial data
+
+v=zeros(sz,1);
+U(:,1)=u;
+
+for i = 1:(steps-1)
+    U(:,i+1)=K2*(U(:,i) + dt*v + ((1- 2*beta)/2)*dt^2*K1*U(:,i));
+    v=v + (dt/2)*K1*(U(:,i) +U(:,i+1));
 end
 
-writeVTK('test',tetr(:,1:4),p,mag);
-%writeVTK(['../PostProc/eigenmode_' num2str(n)],tetr,p,mag);
+
+
+
+
+
+output_folder = 'paraview/animation';
+title = 'testing';
+
+
+
+%Converting to prefered data structure:
+for j=1:steps
+    for i = 1:3:sz
+        uvec(ceil(i/3),(3*j-2):3*j) = [U(i,j) U(i+1,j) U(i+2,j)];
+        mag(ceil(i/3),j) = (U(i,j)^2+U(i+1,j)^2+U(i+2,j)^2)^0.5;
+    end
+    %Writing the shite to VTK:
+    %write_to_vtk(sprintf('%s/%s%d.vtk',output_folder,title,j),title, node_num, element_num, element_order, element_node, cord, temp(:,i))
+    writeVTK([output_folder '/' title '_' num2str(j)],tetr,p+uvec(:,(3*j-2):3*j),mag(:,j));
+end
+
+
+
+    
