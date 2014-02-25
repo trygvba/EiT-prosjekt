@@ -32,23 +32,23 @@ n = 8;
 omega = eigenvalues(n);
 u = V(:,n);
 
-alpha=1;
+alpha=5;
 
 
 %Newmark 2beta method
 steps=100;
 [sz kuk]=size(u);
-dt=1/steps;
+dt=0.001;
 U=zeros(sz,steps);
 beta=0.25;
 
 K1=M/A;
-K2=inv(eye(sz) - beta*dt^2*K1); 
+K2=(eye(sz) - beta*dt^2*K1)\eye(sz); 
 
 %Initial data
 
 v=zeros(sz,1);
-U(:,1)=u;
+U(:,1)=alpha*u;
 
 for i = 1:(steps-1)
     U(:,i+1)=K2*(U(:,i) + dt*v + ((1- 2*beta)/2)*dt^2*K1*U(:,i));
@@ -68,12 +68,12 @@ title = 'testing';
 %Converting to prefered data structure:
 for j=1:steps
     for i = 1:3:sz
-        uvec(ceil(i/3),(3*j-2):3*j) = [U(i,j) U(i+1,j) U(i+2,j)];
+        uvec(ceil(i/3),:) = [U(i,j) U(i+1,j) U(i+2,j)];
         mag(ceil(i/3),j) = (U(i,j)^2+U(i+1,j)^2+U(i+2,j)^2)^0.5;
     end
     %Writing the shite to VTK:
     %write_to_vtk(sprintf('%s/%s%d.vtk',output_folder,title,j),title, node_num, element_num, element_order, element_node, cord, temp(:,i))
-    writeVTK([output_folder '/' title '_' num2str(j)],tetr,p+uvec(:,(3*j-2):3*j),mag(:,j));
+    writeVTK([output_folder '/' title '_' num2str(j)],tetr(:,1:4),p+uvec,mag(:,j));
 end
 
 
