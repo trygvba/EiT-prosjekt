@@ -6,14 +6,14 @@ addpath(genpath('../Converters'));
 
 %Declaration of parameters:
 %Polymer:
-Ep = 0.8*10^9;
+Ep = 1000;  %0.8*10^9;
 vp = 0.46;
 rhop = 950;
 
 %Silver:
-Es = 72.4*10^9;
+Es = 72.4/0.8*Ep;%72.4*10^9;
 vs = 0.37;
-rhos = 10*10^3;
+rhos = 10*rhop;
 
 
 %-----------ASSEMBLY:------------------------
@@ -42,7 +42,7 @@ dt=0.001;
 U=zeros(sz,steps);
 beta=0.25;
 
-K1=M/A;
+K1=M\A;
 K2=(eye(sz) - beta*dt^2*K1)\eye(sz); 
 
 %Initial data
