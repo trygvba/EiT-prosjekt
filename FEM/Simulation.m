@@ -6,14 +6,14 @@ addpath(genpath('../Converters'));
 
 %Declaration of parameters:
 %Polymer:
-Ep = 1000;  %0.8*10^9;
+Ep = 0.8*10^9;
 vp = 0.46;
 rhop = 950;
 
 %Silver:
-Es = 72.4/0.8*Ep;%72.4*10^9;
+Es = 72.4*10^9;
 vs = 0.37;
-rhos = 10*rhop;
+rhos = 10^4;
 
 
 %-----------ASSEMBLY:------------------------
@@ -22,6 +22,7 @@ rhos = 10*rhop;
 [p tri tetr] = loadGeo('spherewshell');
 
 [A M] = MassAndStiffnessMatrix3D(tetr,p,Cp,Cs,rhop,rhos);
+%[A M] = HomogenousMaterial(tetr(:,1:4),p,Cp);
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -36,13 +37,13 @@ alpha=5;
 
 
 %Newmark 2beta method
-steps=1000;
+steps=100;
 [sz kuk]=size(u);
-dt=0.001;
+dt=0.0001;
 U=zeros(sz,steps);
 beta=0.25;
 
-K1=M\A;
+K1=-M\A;
 K2=(eye(sz) - beta*dt^2*K1)\eye(sz); 
 
 %Initial data
@@ -55,7 +56,14 @@ for i = 1:(steps-1)
     v=v + (dt/2)*K1*(U(:,i) +U(:,i+1));
 end
 
-
+%ODE45 versucht:
+% sz =size(u,1);
+% K1 = M\A;
+% F = @(t,u) [zeros(sz) K1; eye(sz) zeros(sz)]*u;
+% u0 =[zeros(sz,1); alpha*u];
+% tspan = [linspace(0,1,100)];
+% [TOUT YOUT] = ode45(F,tspan,u0);
+% U = YOUT(:,(sz+1):end)';
 
 
 
@@ -64,11 +72,8 @@ output_folder = 'paraview/animation';
 title = 'testing';
 
 
-
-pics=100;
-equipic = floor(steps/pics);
 %Converting to prefered data structure:
-for j=1:equipic:steps
+for j=1:steps
     for i = 1:3:sz
         uvec(ceil(i/3),:) = [U(i,j) U(i+1,j) U(i+2,j)];
         mag(ceil(i/3),j) = (U(i,j)^2+U(i+1,j)^2+U(i+2,j)^2)^0.5;
