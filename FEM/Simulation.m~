@@ -66,9 +66,8 @@ title = 'testing';
 
 
 pics=100;
-equipic = floor(steps/pics);
 %Converting to prefered data structure:
-for j=1:equipic:steps
+for j=1:steps
     for i = 1:3:sz
         uvec(ceil(i/3),:) = [U(i,j) U(i+1,j) U(i+2,j)];
         mag(ceil(i/3),j) = (U(i,j)^2+U(i+1,j)^2+U(i+2,j)^2)^0.5;
