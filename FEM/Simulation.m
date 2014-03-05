@@ -39,7 +39,7 @@ alpha=5;
 %Newmark 2beta method
 steps=1000;     %Number of time increments.
 sz=size(u,1);
-dt=0.0001;      %Temporal step spacing.
+dt=0.00001;      %Temporal step spacing.
 U=zeros(sz,steps);
 beta=0.25;
 NumberOfPics = 100; %BEWARE OF NUMBER OF VTK-FILES.
@@ -65,7 +65,7 @@ for i = 1:(steps-1)
     U(:,i+1)=K2*(U(:,i) + dt*v + ((1- 2*beta)/2)*dt^2*K1*U(:,i));
     v=v + (dt/2)*K1*(U(:,i) +U(:,i+1));
 end
-disp(n)
+
 %ODE45 versucht:
 % sz =size(u,1);
 % K1 = M\A;
