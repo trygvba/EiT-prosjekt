@@ -37,11 +37,13 @@ alpha=5;
 
 
 %Newmark 2beta method
-steps=100;
-[sz kuk]=size(u);
-dt=0.0001;
+steps=1000;     %Number of time increments.
+sz=size(u,1);
+dt=0.0001;      %Temporal step spacing.
 U=zeros(sz,steps);
 beta=0.25;
+NumberOfPics = 100; %BEWARE OF NUMBER OF VTK-FILES.
+
 
 K1=-M\A;
 K2=(eye(sz) - beta*dt^2*K1)\eye(sz); 
@@ -51,11 +53,19 @@ K2=(eye(sz) - beta*dt^2*K1)\eye(sz);
 v=zeros(sz,1);
 U(:,1)=alpha*u;
 
+output_folder = 'paraview/animation';
+title = 'testing';
+
+n=1;
 for i = 1:(steps-1)
+    if i==1||(floor(NumberOfPics*i/steps)>floor(NumberOfPics*(i-1)/steps))
+        State_to_vtk(output_folder,title,n,sz,tetr(:,1:4),p,U(:,i));
+        n = n+1;
+    end
     U(:,i+1)=K2*(U(:,i) + dt*v + ((1- 2*beta)/2)*dt^2*K1*U(:,i));
     v=v + (dt/2)*K1*(U(:,i) +U(:,i+1));
 end
-
+disp(n)
 %ODE45 versucht:
 % sz =size(u,1);
 % K1 = M\A;
@@ -65,23 +75,6 @@ end
 % [TOUT YOUT] = ode45(F,tspan,u0);
 % U = YOUT(:,(sz+1):end)';
 
-
-
-
-output_folder = 'paraview/animation';
-title = 'testing';
-
-
-%Converting to prefered data structure:
-for j=1:steps
-    for i = 1:3:sz
-        uvec(ceil(i/3),:) = [U(i,j) U(i+1,j) U(i+2,j)];
-        mag(ceil(i/3),j) = (U(i,j)^2+U(i+1,j)^2+U(i+2,j)^2)^0.5;
-    end
-    %Writing the shite to VTK:
-    %write_to_vtk(sprintf('%s/%s%d.vtk',output_folder,title,j),title, node_num, element_num, element_order, element_node, cord, temp(:,i))
-    writeVTK([output_folder '/' title '_' num2str(j)],tetr(:,1:4),p+uvec,mag(:,j));
-end
 
 
 
