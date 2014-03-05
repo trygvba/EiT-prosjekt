@@ -1,0 +1,15 @@
+function [ nodes ] = upperdirichletnodes( displacement, coords )
+
+[N n]=size(coords);
+nodes=[];
+j=1;
+for i=1:N
+    
+    if ((coords(i,1)^2 + coords(i,2)^2)  >=0.9) && (coords(i,3)>=displacement)
+        nodes(j)=i;
+        j=j+1;
+    end
+    
+end
+
+end

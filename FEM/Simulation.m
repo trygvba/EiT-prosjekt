@@ -37,7 +37,7 @@ alpha=5;
 
 
 %Newmark 2beta method
-steps=1000;     %Number of time increments.
+steps=500;     %Number of time increments.
 sz=size(u,1);
 dt=0.00001;      %Temporal step spacing.
 U=zeros(sz,steps);
@@ -55,6 +55,13 @@ U(:,1)=alpha*u;
 
 output_folder = 'paraview/animation';
 title = 'testing';
+
+%Dirichlet boundary conditions
+
+dp =@(D,t,omega) = 1- sin(omega*t);
+
+
+
 
 n=1;
 for i = 1:(steps-1)
