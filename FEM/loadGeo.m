@@ -6,7 +6,7 @@ p = load([filenm '_nodes.m' ]);
 p = p(:,2:4);
 
 tri = load([filenm '_tri.m']);
-% tri = tri(:,1:3);
+tri = tri(:,1:3);
 
 tetr = load([filenm '_tetr.m']);
 tetr = tetr(:,1:5);

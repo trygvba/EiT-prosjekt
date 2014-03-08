@@ -96,5 +96,6 @@ Surface Loop(59) = {44, 46, 48, 50, 58, 56, 54, 52};
 Volume(60) = {29, 59};
 
 //Physical Groups:
-Physical Volume(61) = {60};
-Physical Volume(62) = {30};
+Physical Volume(61) = {60}; //Outer shell
+Physical Volume(62) = {30}; // Inner sphere
+Physical Surface(63) = {44, 50, 48, 46, 56, 54, 52, 58}; //Outer Surface

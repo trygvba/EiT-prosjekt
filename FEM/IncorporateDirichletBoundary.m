@@ -24,7 +24,7 @@ dim = size(Anew,1);
 fnew = sparse(dim,1);
 for in=uppnode
     i = 3*in;
-    fnew = fnew -upperPlate(in)*(Anew(:,i)+Mnew(:,i));
+    fnew = fnew -upperPlate(in)*(Anew(:,i)+Mnew(:,i)); %Hvis det blir feil, vurder om Mnew ikke skal være med her!
 end
 %incorporating the lower plate:
 for in=lownode
