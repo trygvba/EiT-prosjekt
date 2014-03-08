@@ -30,7 +30,7 @@ rhos = 10^4;
 eigenvalues = diag(D);
 %Pick the n'th eigenvalue we should analyse:
 n = 8;
-omega = eigenvalues(n);
+%omega = eigenvalues(n);
 u = V(:,n);
 
 alpha=5;

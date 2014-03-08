@@ -1,15 +1,7 @@
-function [ nodes ] = upperdirichletnodes( displacement, coords )
+function [ nodes, uzi ] = upperdirichletnodes( displacement, p, u, boundary )
 
-[N n]=size(coords);
-nodes=[];
-j=1;
-for i=1:N
-    
-    if (sqrt(coords(i,1)^2 + coords(i,2)^2 +coords(i,3)^2)>=1.15) && (coords(i,3)>=displacement)
-        nodes(j)=i;
-        j=j+1;
-    end
-    
-end
+temp = [boundary ((p(boundary,3)+u(3*boundary))>=displacement)];
+nodes = temp(find(temp(:,2)),1);
+uzi = displacement*ones(length(nodes),1)-p(nodes,3);
 
 end
