@@ -19,18 +19,12 @@ for in=allnode
     end
 end
 
-%incorporating the upper plate:
-dim = size(Anew,1);
-fnew = sparse(dim,1);
-for in=uppnode
-    i = 3*in;
-    fnew = fnew -upperPlate(in)*(Anew(:,i)+Mnew(:,i)); %Hvis det blir feil, vurder om Mnew ikke skal være med her!
-end
-%incorporating the lower plate:
-for in=lownode
-    i = 3*in;
-    fnew = fnew -lowerPlate(in)*(Anew(:,i)+Mnew(:,i));
-end
+%Incorporating boundary conditions:
+%Upper:
+fnew = fnew -(Anew(:,upperNodes)+Mnew(:,upperNodes))*upperPlate;
+
+%Lower:
+fnew = fnew -(Anew(:,lowerNodes)+Mnew(:,lowerNodes))*lowerPlate;
 
 %Removing columns:
 for in=allnode
