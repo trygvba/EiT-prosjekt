@@ -13,7 +13,7 @@ Beta = 0.25;
 u0 = 1;
 v0 = 0;
 
-dt=10;
+dt=0.1;
 T = 200;
 t=0:dt:T;
 Nt=floor(T/dt);
