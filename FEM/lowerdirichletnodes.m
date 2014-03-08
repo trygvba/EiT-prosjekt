@@ -1,17 +1,8 @@
-function [ nodes ] = lowerdirichletnodes( coords, howlow )
+function [nodes,uzi] = lowerdirichletnodes( p,u, howlow, boundary )
 
-N=length(coords(:,1));
-nodes=[];
-j=1;
-for i=1:N
-    
-    if (sqrt(coords(i,1)^2 + coords(i,2)^2 +coords(i,3)^2)>=1.18) && (coords(i,3)<= howlow)
-        nodes(j)=i;
-        j=j+1;
-    end
-    
-end
-
+temp = [boundary ((p(boundary,3)+u(3*boundary))<=howlow)];
+nodes = temp(find(temp(:,2)),1);
+uzi = howlow*ones(length(nodes),1)-p(nodes,3);
 
 
 end
