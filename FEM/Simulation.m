@@ -30,7 +30,7 @@ rhos = 10^4;
 eigenvalues = diag(D);
 %Pick the n'th eigenvalue we should analyse:
 n = 8;
-omega = eigenvalues(n);
+%omega = eigenvalues(n);
 u = V(:,n);
 
 alpha=5;
@@ -58,7 +58,11 @@ title = 'testing';
 
 %Dirichlet boundary conditions
 
-dp =@(D,t,omega) = 1- sin(omega*t);
+D=0.1; %amplitude of displacement
+omega=2*pi; %frequency of displacement
+
+dp =@(D,t,omega)  1.20- D*cos(omega*t);
+
 
 
 
