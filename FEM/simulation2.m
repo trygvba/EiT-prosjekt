@@ -30,11 +30,11 @@ boundary = unique(tri);
 
 Tspan=1;
 T0=0;
-szU=3324;
+szU=size(A,1);
 steps=100;
 dt=Tspan/steps;
 D=0.1;
-ballradius=1.05;
+ballradius=max(p(:,3));
 omega=2*pi;
 u0=zeros(szU,1);
 U=zeros(szU,steps);

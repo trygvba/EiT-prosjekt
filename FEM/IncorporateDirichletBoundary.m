@@ -1,7 +1,7 @@
 function [fnew Anew Mnew Unew] = IncorporateDirichletBoundary(A,M,U,upperNodes,lowerNodes,upperPlate,lowerPlate)
 lownode = sort(lowerNodes,'descend');
 uppnode = sort(upperNodes,'descend');
-allnode = sort([lowerNodes upperNodes],'descend');
+allnode = sort([lowerNodes; upperNodes],'descend');
 Anew = A;
 Mnew = M;
 Unew = U;
