@@ -40,7 +40,7 @@ u0=zeros(szU,1);
 U=zeros(szU,steps);
 U(:,1)=u0;
 howlow=-1.04;
-dp =@(D,t,omega)  1.20- D*cos(omega*t);
+dp =@(D,t,omega)  ballradius- D*cos(omega*t);
 dU=zeros(szU,1);
 
 for i=2:steps
