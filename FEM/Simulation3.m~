@@ -39,7 +39,7 @@ dt = 0.01;
 %Upper Plate:
 D = 0.1;
 omega = 2*pi;
-eps = 0.01;
+eps = 0.1;
 plate = @(t) radius-eps-D*sin(omega*t);
 
 %Lower Plate:
@@ -52,4 +52,30 @@ v = sparse(sz,1);
 [upnodes uz_up] = upperdirichletnodes(plate(T0),p,U(:,1),boundary);
 [lownodes uz_low] = lowerdirichletnodes(p,U(:,1),howlow,boundary);
 
-[utemp = IncorporateDirichletBoundary(
+[ftemp Atemp Mtemp utemp vtemp] = IncorporateDirichletBoundary(A,M,U(:,1),v,upnodes,lownodes, uz_up, uz_low);
+utemp = putDirichletBack(utemp,lownodes,upnodes,uz_low,uz_up);
+U(:,1) = utemp;
+
+% for i=2:steps
+%     t=T0+i*dt;
+%     [upnodes uz_up] = upperdirichletnodes(plate(t),p,U(:,i-1),boundary);
+%     [lownodes uz_low] = lowerdirichletnodes(p,U(:,i-1),howlow,boundary);
+%     
+%     [ftemp Atemp Mtemp utemp vtemp] = IncorporateDirichletBoundary(A,M,U(:,i-1),v,upnodes,lownodes, uz_up, uz_low);
+%     %Time integration:
+%     dim = size(Atemp,1);
+%     utemp2 = (eye(dim)+0.25*dt^2*Mtemp\Atemp)\(utemp + dt*vtemp-0.25*dt^2*Mtemp\Atemp*utemp+0.5*dt^2*Mtemp\ftemp);
+%     utemp2 = putDirichletBack(utemp2,lownodes,upnodes,uz_low,uz_up);
+%     U(:,i) = utemp2;
+%     v = v -0.5*dt*M\A*(U(:,i)+U(:,i-1));
+% end
+
+
+
+%--------------POST PROCESSING:----------------------
+output_folder = 'paraview/animation';
+title = 'testDir';
+
+    State_to_vtk(output_folder,title,i,sz,tetr(:,1:4),p,U(:,i));
+
+
