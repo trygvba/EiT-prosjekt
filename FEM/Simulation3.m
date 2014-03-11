@@ -53,3 +53,4 @@ v = sparse(sz,1);
 [lownodes uz_low] = lowerdirichletnodes(p,U(:,1),howlow,boundary);
 
 [ftemp Atemp Mtemp utemp vtemp] = IncorporateDirichletBoundary(A,M,U(:,1),v,upnodes,lownodes, uz_up, uz_low);
+Utemp = putDirichletBack(utemp,lownodes,upnodes,uz_low,uz_up);
