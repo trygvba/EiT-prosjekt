@@ -30,11 +30,11 @@ boundary = unique(tri);
 
 Tspan=1;
 T0=0;
-szU=3324;
+szU=size(A,1);
 steps=100;
 dt=Tspan/steps;
 D=0.1;
-ballradius=1.05;
+ballradius=max(p(:,3));
 omega=2*pi;
 u0=zeros(szU,1);
 U=zeros(szU,steps);
@@ -51,10 +51,14 @@ for i=2:steps
  [lowernodes,uzil] = lowerdirichletnodes( p,U(:,i-1), howlow, boundary );
  [ uppernodes,uzip ] = upperdirichletnodes( dp(t), p, U(:,i-1), boundary );
 
- [fnew Anew Mnew unew] = IncorporateDirichletBoundary(A,M,U(:,i-1),upperNodes,lowerNodes,uzip,uzil);
+ [fnew Anew Mnew unew dUnew] = IncorporateDirichletBoundary(A,M,U(:,i-1),uppernodes,lowernodes,uzip,uzil);
 
- U(:,i)= (eye(szU) -(dt^2)/2*Mnew\(fnew-Anew)*U(:,i-1) +dt*dU
- dU=(1/dt)*(U(:,i)-U(:,i-1))
+ utemp= (eye(szU) -(dt^2)/2*Mnew\(fnew-Anew)*unew +dt*dU;
+ U(:,i) = putDirichletBack(utemp, lowernodes, uppernodes, uzil, uzi);
+ dU=(1/dt)*(U(:,i)-U(:,i-1));
+ 
+end
+
 
 
 

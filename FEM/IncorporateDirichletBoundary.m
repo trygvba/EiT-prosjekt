@@ -2,6 +2,7 @@ function [fnew Anew Mnew Unew dUnew] = IncorporateDirichletBoundary(A,M,U,dU,upp
 lownode = sort(lowerNodes,'descend');
 uppnode = sort(upperNodes,'descend');
 allnode = sort([lowerNodes; upperNodes],'descend');
+
 Anew = A;
 Mnew = M;
 Unew = U;
@@ -23,6 +24,7 @@ for in=allnode
 end
 
 %Incorporating boundary conditions:
+fnew = sparse(size(Anew,1),1);
 %Upper:
 fnew = fnew -(Anew(:,upperNodes)+Mnew(:,upperNodes))*upperPlate;
 

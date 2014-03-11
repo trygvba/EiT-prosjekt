@@ -1,7 +1,7 @@
 function U = putDirichletBack(Uprev, lowerPlate, upperPlate, uzilow, uziup)
 
-data = [upperPlate uziup; lowerplate uzilow];
-nodes = sort([upperplate; lowerPlate],'ascend');
+data = [upperPlate uziup; lowerPlate uzilow];
+nodes = sort([upperPlate; lowerPlate],'ascend');
 U = Uprev;
 for in=nodes
     i = 3*in;
