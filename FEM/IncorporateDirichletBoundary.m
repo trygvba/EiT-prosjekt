@@ -12,7 +12,6 @@ dUnew = dU;
 n=length(allnode);
 for j=1:n
     i = 3*allnode(j); %z-coordinate.
-    disp(i)
     Anew = Anew([1:(i-1) (i+1):end],:);
     Mnew = Mnew([1:(i-1) (i+1):end],:);
     Unew = Unew([1:(i-1) (i+1):end]);
