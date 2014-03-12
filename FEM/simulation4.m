@@ -24,51 +24,40 @@ boundary = unique(tri);
 [A M] = MassAndStiffnessMatrix3D(tetr,p,Cp,Cs,rhop,rhos);
 %[A M] = HomogenousMaterial(tetr(:,1:4),p,Cp);
 
-
-
-% TIME INTEGRATION, FORWARD EULER
-
 Tspan=.1;
 T0=1.1;
 szU=size(A,1);
 steps=20;
-dt=0.01*Tspan/steps;
-D=2;
+dt=Tspan/steps;
+OLT=0.05;
+impactzone=.5;
 ballradius=max(p(:,3));
 omega=2*pi;
-u0=zeros(szU,1);
-U=zeros(szU,steps);
-U(:,1)=u0;
+
 howlow=-1.04;
-dp =@(D,t,omega)  ballradius- D*cos(omega*t);
-dU=zeros(szU,1);
+dp =@(OLT,t,omega)  ballradius- OLT*cos(omega*t);
+d2dp=@(OLT,t) OLT*omega^2*cos(omega*t);
+u=zeros(3324,1);
+maxdisplacement=ballradius-impactzone*OLT;
+U=zeros(szU,steps);
+dU=U(:,1);
+[upperNodes, upperPlate ] = upperdirichletnodes( maxdisplacement, p, U(:,1), boundary );
+[lowerNodes, lowerPlate] = lowerdirichletnodes( p,U(:,1), howlow, boundary );
+
 
 for i=2:steps
-   
+
+
  t=T0+i*dt;   
-
  
- [lowernodes,uzil] = lowerdirichletnodes( p,U(:,i-1), howlow, boundary );
- [ uppernodes,uzip ] = upperdirichletnodes( dp(D,t,omega), p, U(:,i-1), boundary );
+ 
+[krust, upperPlate ] = upperdirichletnodes( dp(OLT,t,omega), p, U(:,1), boundary );
+[fnew Anew Mnew] = IncorporateDirichletBoundaryV2(A,M,upperNodes,lowerNodes,upperPlate,lowerPlate,d2dp(OLT,t));
 
- [fnew Anew Mnew unew dUnew] = IncorporateDirichletBoundary(A,M,U(:,i-1),dU,uppernodes,lowernodes,uzip,uzil);
-
- utemp= unew +((dt^2)/2)*Mnew\(fnew-Anew*unew) +dt*dUnew;
- U(:,i) = putDirichletBack(utemp, lowernodes, uppernodes, uzil, uzip);
+ U(:,i)= U(:,i-1) +((dt^2)/2)*Mnew\(fnew-Anew*U(:,i-1)) +dt*dU;
  dU=(1/dt)*(U(:,i)-U(:,i-1));
- 
+
 end
-
-
-
-
-
-
-
-
-
-
-
 
 
 % vtk writing
@@ -89,4 +78,6 @@ end
 
 
 
-    
+
+
+

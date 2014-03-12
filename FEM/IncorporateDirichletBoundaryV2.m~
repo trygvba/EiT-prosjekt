@@ -4,7 +4,7 @@ uppnode = sort(upperNodes,'descend');
 
 allnode = sort([lowerNodes; upperNodes],'descend');
 
-dim = size(A,1);
+dim = le;
 Anew = A;
 Mnew = M;
 %Removing rows:
@@ -31,6 +31,6 @@ fnew = fnew -A(:,upperNodes)*upperPlate;
 fnew = fnew -A(:,lowerNodes)*lowerPlate;
 
 fnew(upperNodes) = accUpper*ones(length(upperNodes),1);
-fnew(loweNodes) = zeros(length(lowerNodes,1);
+fnew(loweNodes) = zeros(length(lowerNodes,1));
 end
 

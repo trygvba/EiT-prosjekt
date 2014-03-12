@@ -4,7 +4,7 @@ uppnode = sort(upperNodes,'descend');
 
 allnode = sort([lowerNodes; upperNodes],'descend');
 
-dim = size(A,1);
+dim = length(A(1,:))
 Anew = A;
 Mnew = M;
 %Removing rows:
@@ -12,7 +12,7 @@ n=length(allnode);
 for j=1:n
     i = 3*allnode(j); %z-coordinate.
     %Removing columns from stiffness matrix:
-    Anew = Anew(:,[1:(i-1) (i+1):end]);
+    Anew(:,i) = sparse(dim,1);
     
     %Zeroing rows in A and M:
     Anew(i,:) = sparse(1,dim);
@@ -31,6 +31,6 @@ fnew = fnew -A(:,upperNodes)*upperPlate;
 fnew = fnew -A(:,lowerNodes)*lowerPlate;
 
 fnew(upperNodes) = accUpper*ones(length(upperNodes),1);
-fnew(loweNodes) = zeros(length(lowerNodes,1);
+fnew(lowerNodes) = zeros(length(lowerNodes),1);
 end
 
