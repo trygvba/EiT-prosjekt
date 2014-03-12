@@ -25,12 +25,12 @@ end
 fnew = sparse(size(Anew,1),1);
 
 %Upper:
-fnew = fnew -A(:,upperNodes)*upperPlate;
+fnew = fnew -Anew(:,3*upperNodes)*upperPlate;
 
 %Lower:
-fnew = fnew -A(:,lowerNodes)*lowerPlate;
+fnew = fnew -Anew(:,3*lowerNodes)*lowerPlate;
 
-fnew(upperNodes) = accUpper*ones(length(upperNodes),1);
-fnew(lowerNodes) = zeros(length(lowerNodes),1);
+fnew(3*upperNodes) = accUpper*ones(length(upperNodes),1);
+fnew(3*lowerNodes) = zeros(length(lowerNodes),1);
 end
 

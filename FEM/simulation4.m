@@ -44,6 +44,16 @@ dU=U(:,1);
 [upperNodes, upperPlate ] = upperdirichletnodes( maxdisplacement, p, U(:,1), boundary );
 [lowerNodes, lowerPlate] = lowerdirichletnodes( p,U(:,1), howlow, boundary );
 
+lowN=zeros(szU,1);
+upN=ones(length(upperNodes),1);
+% for i=upperNodes
+%     upN(i,1)=1;
+% end
+% for j=lowerNodes
+%     lowN(j)=1;
+% end
+
+
 
 for i=2:steps
 
@@ -51,8 +61,9 @@ for i=2:steps
  t=T0+i*dt;   
  
  
-[krust, upperPlate ] = upperdirichletnodes( dp(OLT,t,omega), p, U(:,1), boundary );
 [fnew Anew Mnew] = IncorporateDirichletBoundaryV2(A,M,upperNodes,lowerNodes,upperPlate,lowerPlate,d2dp(OLT,t));
+upperPlate= upperPlate-(upN*(dp(OLT,t,omega)-ballradius));
+
 
  U(:,i)= U(:,i-1) +((dt^2)/2)*Mnew\(fnew-Anew*U(:,i-1)) +dt*dU;
  dU=(1/dt)*(U(:,i)-U(:,i-1));
