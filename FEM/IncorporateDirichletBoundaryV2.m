@@ -1,4 +1,4 @@
-function [fnew Anew Mnew] = IncorporateDirichletBoundaryV2(A,M,upperNodes,lowerNodes,upperPlate,lowerPlate)
+function [fnew Anew Mnew] = IncorporateDirichletBoundaryV2(A,M,upperNodes,lowerNodes,upperPlate,lowerPlate, accUpper)
 lownode = sort(lowerNodes,'descend');
 uppnode = sort(upperNodes,'descend');
 
@@ -30,7 +30,7 @@ fnew = fnew -A(:,upperNodes)*upperPlate;
 %Lower:
 fnew = fnew -A(:,lowerNodes)*lowerPlate;
 
-
-
+fnew(upperNodes) = accUpper*ones(length(upperNodes),1);
+fnew(loweNodes) = zeros(length(lowerNodes,1);
 end
 
