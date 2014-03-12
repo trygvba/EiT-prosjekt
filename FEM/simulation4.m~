@@ -30,7 +30,7 @@ szU=size(A,1);
 steps=20;
 dt=Tspan/steps;
 OLT=0.05;
-impactzone=.5;
+impactzone=1;
 ballradius=max(p(:,3));
 omega=2*pi;
 
@@ -43,16 +43,29 @@ U=zeros(szU,steps);
 dU=U(:,1);
 [upperNodes, upperPlate ] = upperdirichletnodes( maxdisplacement, p, U(:,1), boundary );
 [lowerNodes, lowerPlate] = lowerdirichletnodes( p,U(:,1), howlow, boundary );
+
+
+
+upN=ones(length(upperNodes),1);
+
 U(upperNodes,1) = upperPlate;
 U(lowerNodes,1) = lowerPlate;
 
+
 for i=2:steps
+
+
     t=T0+i*dt;   
-    [fnew Anew Mnew] = IncorporateDirichletBoundaryV2(A,M,upperNodes,lowerNodes,upperPlate+dp(OLT,t,omega),lowerPlate,d2dp(OLT,t));
 
- U(:,i)= U(:,i-1) +((dt^2)/2)*Mnew\(fnew-Anew*U(:,i-1)) +dt*dU;
- dU=(1/dt)*(U(:,i)-U(:,i-1));
 
+    [fnew Anew Mnew] = IncorporateDirichletBoundaryV2(A,M,upperNodes,lowerNodes,upperPlate,lowerPlate,d2dp(OLT,t));
+
+    upperPlate= upperPlate+(upN*(dp(OLT,t,omega)-ballradius));
+
+    U(:,i)= U(:,i-1) +((dt^2)/2)*Mnew\(fnew-Anew*U(:,i-1)) +dt*dU;
+    dU=(1/dt)*(U(:,i)-U(:,i-1));
+    
+    
 end
 
 
