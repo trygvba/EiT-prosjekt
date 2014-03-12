@@ -24,8 +24,8 @@ boundary = unique(tri);
 [A M] = MassAndStiffnessMatrix3D(tetr,p,Cp,Cs,rhop,rhos);
 %[A M] = HomogenousMaterial(tetr(:,1:4),p,Cp);
 
-Tspan=.1;
-T0=1.1;
+Tspan=.001;
+T0=0;
 szU=size(A,1);
 steps=20;
 dt=Tspan/steps;
@@ -35,24 +35,20 @@ ballradius=max(p(:,3));
 omega=2*pi;
 
 howlow=-1.04;
-dp =@(OLT,t,omega)  ballradius- OLT*cos(omega*t);
-d2dp=@(OLT,t) OLT*omega^2*cos(omega*t);
+dp =@(OLT,t,omega)-OLT*sin(omega*t);
+d2dp=@(OLT,t) OLT*omega^2*sin(omega*t);
 u=zeros(3324,1);
 maxdisplacement=ballradius-impactzone*OLT;
 U=zeros(szU,steps);
 dU=U(:,1);
 [upperNodes, upperPlate ] = upperdirichletnodes( maxdisplacement, p, U(:,1), boundary );
 [lowerNodes, lowerPlate] = lowerdirichletnodes( p,U(:,1), howlow, boundary );
-
+U(upperNodes,1) = upperPlate;
+U(lowerNodes,1) = lowerPlate;
 
 for i=2:steps
-
-
- t=T0+i*dt;   
- 
- 
-[krust, upperPlate ] = upperdirichletnodes( dp(OLT,t,omega), p, U(:,1), boundary );
-[fnew Anew Mnew] = IncorporateDirichletBoundaryV2(A,M,upperNodes,lowerNodes,upperPlate,lowerPlate,d2dp(OLT,t));
+    t=T0+i*dt;   
+    [fnew Anew Mnew] = IncorporateDirichletBoundaryV2(A,M,upperNodes,lowerNodes,upperPlate+dp(OLT,t,omega),lowerPlate,d2dp(OLT,t));
 
  U(:,i)= U(:,i-1) +((dt^2)/2)*Mnew\(fnew-Anew*U(:,i-1)) +dt*dU;
  dU=(1/dt)*(U(:,i)-U(:,i-1));
