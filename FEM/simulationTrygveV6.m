@@ -29,11 +29,11 @@ T0=0;                       %start time.
 szU=size(A,1);              %dimension of our system.
 steps=100;                   %Number of time steps.
 U = zeros(szU,steps);
-dt=10^(-6);                   %Temporal step size.
-OLT=0.1;                   %Outer Layer Thickness.
+dt=10^(-8);                   %Temporal step size.
+OLT=0.01;                   %Outer Layer Thickness.
 impactzone=0.5;              %Parameter to decide which nodes are in the Dirichlet boundary.
 ballradius=max(p(:,3));     %Total radius of the ball with outher shell.
-omega=(pi/2)/(steps*dt);                 %Frequency of upperplate.
+omega=9*10^(6);                 %Frequency of upperplate.
 
 %Getting out nodes on the Dirichlet boundary:
 %Upper plate:
@@ -45,8 +45,8 @@ omega=(pi/2)/(steps*dt);                 %Frequency of upperplate.
     [lowerNodes, uz_low] = lowerdirichletnodes(p,zeros(szU,1),bound_low,boundary);
 
 %Setting initial displacement:
-U(3*upperNodes,1) = uz_up;
-U(3*lowerNodes,1) = uz_low;
+% U(3*upperNodes,1) = uz_up;
+% U(3*lowerNodes,1) = uz_low;
 
 %Setting initial velocity:
 
