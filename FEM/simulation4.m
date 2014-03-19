@@ -24,7 +24,7 @@ boundary = unique(tri);
 [A M] = MassAndStiffnessMatrix3D(tetr,p,Cp,Cs,rhop,rhos);
 %[A M] = HomogenousMaterial(tetr(:,1:4),p,Cp);
 
-Tspan=.00001;
+Tspan=.001;
 T0=0;
 szU=size(A,1);
 steps=20;
