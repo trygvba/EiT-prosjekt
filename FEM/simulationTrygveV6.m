@@ -65,8 +65,11 @@ K1 = Mmod\Amod;
 I = eye(size(Amod,1));
 K2 = (I+0.25*dt^2*K1)\I;
 
-Utemp_last = v;
+%Utemp_last = v;
 F_last = -Fmat_up*uz_up-Fmat_low*uz_low;
+Utemp_last = Amod\F_last;
+u0 = putDirichletBack(Utemp_last,lowerNodes,upperNodes,uz_low,uz_up);
+U(:,1) = u0;
 %------------------------------------------------
 %       TIME INTEGRATION (NEWMARK)
 %------------------------------------------------
