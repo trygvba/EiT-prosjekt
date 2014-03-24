@@ -34,7 +34,7 @@ dt=1/steps;                   %Temporal step size.
 OLT=0.05;                   %Outer Layer Thickness.
 impactzone=.5;              %Parameter to decide which nodes are in the Dirichlet boundary.
 ballradius=max(p(:,3));     %Total radius of the ball with outher shell.
-omega=10*pi;                 %Frequency of upperplate.
+omega=5*pi;                 %Frequency of upperplate.
 beta=1/4;
 
 
