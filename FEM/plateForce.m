@@ -1,9 +1,9 @@
-function [ pF ] = plateForce( t,omega )
+function [ pF ] = plateForce( t,omega,OLT )
 
-  -1000*omega^2*sin(omega*t);
+  
 
-if -1000*omega^2*sin(omega*t) < 0
-    pF=-50*omega^2*sin(omega*t);
+if -OLT*omega^2*sin(omega*t) < 0
+    pF=-OLT*omega^2*sin(omega*t);
 else
     pF=0;
 end
