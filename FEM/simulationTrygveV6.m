@@ -9,12 +9,12 @@ addpath(genpath('../Converters'));
 X = 15*10^(-6); %Length scale.
 Ep = 0.8*10^9/X;;
 vp = 0.46;
-rhop = 950;
+rhop = X^3*950;
 
 %Silver:
 Es = 72.4*10^9/X;
 vs = 0.37;
-rhos = 10^4;
+rhos = X^3*10^4;
 
 disp('Starting assembly')
 %-----------ASSEMBLY:------------------------
