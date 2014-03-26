@@ -6,13 +6,13 @@ addpath(genpath('../Converters'));
 
 %Declaration of parameters: 
 %Polymer: 
-X = 1%15*10^(-6); %Length scale. ;
-Ep = 0.8*10^9/X;  
+X = 1;%15*10^(-6); %Length scale. ;
+Ep = 0.8*10^9*X;  
 vp = 0.46; 
 rhop = 950*X^3; 
 
 %Silver: 
-Es = 72.4*10^9/X; 
+Es = 72.4*10^9*X; 
 vs = 0.37; 
 rhos = 10^4*X^3;
 
@@ -36,12 +36,12 @@ steps=400;                  %Number of time steps.
 U = zeros(szU,steps);
 dt=1/(steps);               %Temporal step size.
 OLT=0.05;                   %Outer Layer Thickness.
-impactzone=.5;              %Parameter to decide which nodes are in the Dirichlet boundary.
+impactzone=.05;              %Parameter to decide which nodes are in the Dirichlet boundary.
 ballradius=max(p(:,3));     %Total radius of the ball with outher shell.
 omega=5*pi;                 %Frequency of upperplate.
-howlow=-ballradius*0.98;
+howlow=-ballradius*0.99;
 beta=1/4;
-f=1000000000;
+f=X*10^6;
 
 disp('kym spiser lorde-suppe')
 
@@ -81,7 +81,7 @@ for i=2:steps
       v = v+0.5*dt*(M\(f_vec(p_new,tri,plateForce2(t+dt,omega,OLT,f),plateDisp(t+dt)) +f_vec(p_new,tri,plateForce2(t,omega,OLT,f),plateDisp(t))))+0.5*dt*K1*(U(:,i-1)+U(:,i));
       
       [nodes,uzi] = lowerdirichletnodes( p,U(:,i), howlow, boundary );
-      U(nodes,i)=uzi;
+      U(3*nodes,i)=uzi;
       
 % %forward euler
 % 

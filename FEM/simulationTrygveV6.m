@@ -7,12 +7,12 @@ addpath(genpath('../Converters'));
 %Declaration of parameters:
 %Polymer:
 X = 15*10^(-6); %Length scale.
-Ep = 0.8*10^9/X;;
+Ep = 0.8*10^9*X;
 vp = 0.46;
 rhop = X^3*950;
 
 %Silver:
-Es = 72.4*10^9/X;
+Es = 72.4*10^9*X;
 vs = 0.37;
 rhos = X^3*10^4;
 
