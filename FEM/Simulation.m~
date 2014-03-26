@@ -37,7 +37,11 @@ alpha=0.5;
 
 
 %Newmark 2beta method
+<<<<<<< HEAD
+steps=200;     %Number of time increments.
+=======
 steps=100;     %Number of time increments.
+>>>>>>> 631fa3df826385359cbaa1fd0b2f40741ce7d442
 sz=size(u,1);
 dt=0.00001;      %Temporal step spacing.
 U=zeros(sz,steps);
