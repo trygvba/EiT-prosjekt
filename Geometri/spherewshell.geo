@@ -48,7 +48,7 @@ Ruled Surface(28) = {27};
 Surface Loop(29) = {22, 20, 18, 16, 14, 24, 26, 28};
 Volume(30) = {29};
 
-//Outer Sphere:
+//Outer Shell:
 lc2=lc1;
 //Points:
 Point(31) = {Rs, 0, 0, lc2};
