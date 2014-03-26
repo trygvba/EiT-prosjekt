@@ -1,0 +1,67 @@
+function [fnew Anew Mnew Unew dUnew] = IncorporateDirichletBoundary(A,M,U,dU,upperNodes,lowerNodes,upperPlate,lowerPlate)
+lownode = sort(lowerNodes,'descend');
+uppnode = sort(upperNodes,'descend');
+<<<<<<< HEAD
+allnode = sort([lowerNodes; upperNodes],'descend');
+=======
+allnode = sort([lowerNodes; upperNodes],'descend')
+>>>>>>> 6b2bf2df847570d52d8df4469a15a2cb3dd5686e
+Anew = A;
+Mnew = M;
+Unew = U;
+dUnew = dU;
+%Removing rows:
+n=length(allnode);
+for in=all
+    i = 3*in; %z-coordinate.
+<<<<<<< HEAD
+    if i==size(Anew,1)
+        Anew = Anew(1:(end-1),:);
+        Mnew = Mnew(1:(end-1),:);
+        Unew = Unew(1:(end-1));
+        dUnew = dUnew(1:(end-1));
+    else
+        Anew = Anew([1:(i-1) (i+1):end],:);
+        Mnew = Mnew([1:(i-1) (i+1):end],:);
+        Unew = Unew([1:(i-1) (i+1):end]);
+        dUnew = dUnew([1:(i-1) (i+1):end]);
+    end
+end
+
+%Incorporating boundary conditions:
+fnew = sparse(size(A
+%Upper:
+fnew = fnew -(Anew(:,upperNodes)+Mnew(:,upperNodes))*upperPlate;
+
+%Lower:
+fnew = fnew -(Anew(:,lowerNodes)+Mnew(:,lowerNodes))*lowerPlate;
+=======
+    disp(i)
+    Anew = Anew([1:(i-1) (i+1):end],:);
+    Mnew = Mnew([1:(i-1) (i+1):end],:);
+    Unew = Unew([1:(i-1) (i+1):end]);
+    dUnew = dUnew([1:(i-1) (i+1):end]);
+    disp('Funk da!')
+end
+
+%Incorporating boundary conditions:
+fnew = sparse(size(Anew,1));
+%Upper:
+fnew = fnew -Anew(:,upperNodes)*upperPlate;
+
+%Lower:
+fnew = fnew -Anew(:,lowerNodes)*lowerPlate;
+>>>>>>> 6b2bf2df847570d52d8df4469a15a2cb3dd5686e
+
+%Removing columns:
+for in=allnode
+    i = 3*in;
+    if i==size(Anew,2)
+        Anew = Anew(:,1:(end-1));
+        Mnew = Mnew(:,1:(end-1));
+    else
+        Anew = Anew(:,[1:(i-1) (i+1):end]);
+        Mnew = Mnew(:,[1:(i-1) (i+1):end]);
+    end
+end
+end
