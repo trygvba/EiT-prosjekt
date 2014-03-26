@@ -21,8 +21,8 @@ rhos = 10^4;
 
 [p tri tetr] = loadGeo('spherewshell');
 
-%[A M] = MassAndStiffnessMatrix3D(tetr,p,Cp,Cs,rhop,rhos);
-[A M] = HomogenousMaterial(tetr(:,1:4),p,Cp);
+[A M] = MassAndStiffnessMatrix3D(tetr,p,Cp,Cs,rhop,rhos);
+%[A M] = HomogenousMaterial(tetr(:,1:4),p,Cp);
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -33,11 +33,11 @@ n = 8;
 %omega = eigenvalues(n);
 u = V(:,n);
 
-alpha=0.5;
+alpha=5;
 
 
 %Newmark 2beta method
-steps=200;     %Number of time increments.
+steps=500;     %Number of time increments.
 sz=size(u,1);
 dt=0.00001;      %Temporal step spacing.
 U=zeros(sz,steps);
@@ -58,10 +58,10 @@ title = 'testing';
 
 %Dirichlet boundary conditions
 
-D=0.01; %amplitude of displacement
-omega=2*pi/10; %frequency of displacement
+D=0.1; %amplitude of displacement
+omega=2*pi; %frequency of displacement
 
-dp =@(D,t,omega)  1.02- D*cos(omega*t);
+dp =@(D,t,omega)  1.20- D*cos(omega*t);
 
 
 
