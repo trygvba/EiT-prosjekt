@@ -29,7 +29,7 @@ boundary = unique(tri);
 
 %--------------------------------------------
 disp('Assembly done')
-
+disp(' ')
 
 %Short eigenfrequency analysis:
 disp('Short eigenfrequency analysis')

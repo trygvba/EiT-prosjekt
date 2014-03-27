@@ -6,7 +6,7 @@ nb=getNeumannBoundary2(tri,p,epsilon,first_triangle);
 
 f_vec=zeros(3*length(p(:,1)),1);
 
-N=length(nb)
+N=length(nb);
 
 if N<1
     f_vec=zeros(3*length(p(:,1)),1);
