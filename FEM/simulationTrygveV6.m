@@ -8,8 +8,10 @@ addpath(genpath('../Converters'));
 %Polymer:
 
 X = 15*10^(-6); %Length scale.
+
 Ep = 3*10^9*X;
 vp = 0.48;
+
 rhop = X^3*950;
 
 %Silver:
