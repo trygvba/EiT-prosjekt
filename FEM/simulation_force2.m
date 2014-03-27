@@ -6,8 +6,8 @@ addpath(genpath('../Converters'));
 
 %Declaration of parameters: 
 %Polymer: 
-X = 1;%15*10^(-6); %Length scale. ;
-Ep = 10^5% 0.8*10^9*X;  
+X = 15*10^(-6); %Length scale. ;
+Ep = 0.8*10^9*X;  
 vp = 0.46; 
 rhop = 950*X^3; 
 
@@ -18,11 +18,11 @@ rhos = 10^4*X^3;
 
 
 %-----------ASSEMBLY:------------------------
-[Cp Cs] = StressMatrices(Ep,Ep,vp,vp);
+[Cp Cs] = StressMatrices(Ep,Es,vp,vs);
 
 [p tri tetr] = loadGeo('spherewshell');
 boundary = unique(tri);
-[A M] = MassAndStiffnessMatrix3D(tetr,p,Cp,Cs,rhop,rhop);
+[A M] = MassAndStiffnessMatrix3D(tetr,p,Cp,Cs,rhop,rhos);
 
 %% Time Integration
 
@@ -32,16 +32,16 @@ boundary = unique(tri);
 T0=0;                       %start time.
 szU=size(A,1);              %dimension of our system.
 szP=szU/3;
-steps=1000;                  %Number of time steps.
+steps=300;                  %Number of time steps.
 U = zeros(szU,steps);
-dt=1/(steps);               %Temporal step size.
+dt=1/(50*steps);               %Temporal step size.
 OLT=0.05;                   %Outer Layer Thickness.
 impactzone=.05;              %Parameter to decide which nodes are in the Dirichlet boundary.
 ballradius=max(p(:,3));     %Total radius of the ball with outher shell.
-omega=10*pi;                 %Frequency of upperplate.
-howlow=-ballradius*0.99;
+omega=100*pi;                 %Frequency of upperplate.
+howlow=-ballradius;
 beta=1/4;
-f=10000;
+f=X*0.001;
 epsilon=0.02;
 disp('kym spiser lorde-suppe')
 
@@ -81,7 +81,7 @@ for i=2:steps
       U(:,i) = K2*(U(:,i-1)+dt*v+0.25*dt^2*K1*U(:,i-1)+0.25*dt^2*(M\(f_vec2(p_new,tri,plateForce3(t-dt,omega,OLT,f),epsilon,FT) +f_vec2(p_new,tri,plateForce3(t,omega,OLT,f),epsilon,FT))));
       v = v+0.5*dt*(M\(f_vec2(p_new,tri,plateForce3(t-dt,omega,OLT,f),epsilon,FT) +f_vec2(p_new,tri,plateForce3(t,omega,OLT,f),epsilon,FT)))+0.5*dt*K1*(U(:,i-1)+U(:,i));
       
-      [nodes,uzi] = lowerdirichletnodes(p,U(:,i-1), howlow, boundary );
+      [nodes,uzi] = lowerdirichletnodes(p,U(:,i), howlow, boundary );
       U(3*nodes,i)=uzi;
      
 end

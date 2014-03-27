@@ -32,16 +32,16 @@ boundary = unique(tri);
 T0=0;                       %start time.
 szU=size(A,1);              %dimension of our system.
 szP=szU/3;
-steps=1000;                  %Number of time steps.
+steps=100;                  %Number of time steps.
 U = zeros(szU,steps);
 dt=1/(steps);               %Temporal step size.
 OLT=0.05;                   %Outer Layer Thickness.
 impactzone=.05;              %Parameter to decide which nodes are in the Dirichlet boundary.
 ballradius=max(p(:,3));     %Total radius of the ball with outher shell.
-omega=10*pi;                 %Frequency of upperplate.
-howlow=-ballradius*0.99;
+omega=100*pi;                 %Frequency of upperplate.
+howlow=-ballradius;
 beta=1/4;
-f=10000;
+f=100;
 epsilon=0.02;
 disp('kym spiser lorde-suppe')
 
