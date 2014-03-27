@@ -8,6 +8,7 @@ f_vec=zeros(3*length(p(:,1)),1);
 
 N=size(nb,1);
 
+
 if N<1
     f_vec=zeros(3*length(p(:,1)),1);
 else

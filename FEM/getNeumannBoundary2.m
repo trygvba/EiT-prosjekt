@@ -1,4 +1,4 @@
-function neu = getNeumannBoundary(tri,p,epsilon,first_triangle)
+function neu = getNeumannBoundary2(tri,p,epsilon,first_triangle)
 
 neu=[];
 ft=mean(p(first_triangle,3));

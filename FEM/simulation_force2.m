@@ -6,9 +6,10 @@ addpath(genpath('../Converters'));
 
 %Declaration of parameters: 
 %Polymer: 
-X = 15*10^(-6); %Length scale. ;
-Ep = 0.8*10^9*X;  
-vp = 0.46; 
+X = 15*10^(-6); %Length scale.
+Ep = 3*10^9*X;  
+vp = 0.48; 
+
 rhop = 950*X^3; 
 
 %Silver: 
@@ -32,9 +33,9 @@ boundary = unique(tri);
 T0=0;                       %start time.
 szU=size(A,1);              %dimension of our system.
 szP=szU/3;
-steps=300;                  %Number of time steps.
+steps=100;                  %Number of time steps.
 U = zeros(szU,steps);
-dt=1/(50*steps);               %Temporal step size.
+dt=10^(-9);               %Temporal step size.
 OLT=0.05;                   %Outer Layer Thickness.
 impactzone=.05;              %Parameter to decide which nodes are in the Dirichlet boundary.
 ballradius=max(p(:,3));     %Total radius of the ball with outher shell.
@@ -72,28 +73,31 @@ v=zeros(szU,1);
 FT=getNeumannBoundary(tri,p,ballradius)
 ft=p(FT(1,:),:);
 
+output_folder = 'paraview/animation';
+title = 'testing';
+Number_of_pics = 100;
+n=1;
+
+
 tic
-for i=2:steps
-    
+for i=1:(steps-1)    
+    if i==1||(floor(Number_of_pics*i/steps)>floor(Number_of_pics*(i-1)/steps))
+        State_to_vtk(output_folder,title,n,szU,tetr(:,1:4),p,U(:,i));
+        n = n+1;
+    end
       t = T0+i*dt;
     
-      p_new=pupdate(p,U(:,i-1),szU);
-      U(:,i) = K2*(U(:,i-1)+dt*v+0.25*dt^2*K1*U(:,i-1)+0.25*dt^2*(M\(f_vec2(p_new,tri,plateForce3(t-dt,omega,OLT,f),epsilon,FT) +f_vec2(p_new,tri,plateForce3(t,omega,OLT,f),epsilon,FT))));
-      v = v+0.5*dt*(M\(f_vec2(p_new,tri,plateForce3(t-dt,omega,OLT,f),epsilon,FT) +f_vec2(p_new,tri,plateForce3(t,omega,OLT,f),epsilon,FT)))+0.5*dt*K1*(U(:,i-1)+U(:,i));
+      p_new=pupdate(p,U(:,i),szU);
+      U(:,i+1) = K2*(U(:,i)+dt*v+0.25*dt^2*K1*U(:,i)+0.25*dt^2*(M\(f_vec2(p_new,tri,plateForce3(t-dt,omega,OLT,f),epsilon,FT) +f_vec2(p_new,tri,plateForce3(t,omega,OLT,f),epsilon,FT))));
+      v = v+0.5*dt*(M\(f_vec2(p_new,tri,plateForce3(t-dt,omega,OLT,f),epsilon,FT) +f_vec2(p_new,tri,plateForce3(t,omega,OLT,f),epsilon,FT)))+0.5*dt*K1*(U(:,i+1)+U(:,i));
       
-      [nodes,uzi] = lowerdirichletnodes(p,U(:,i), howlow, boundary );
-      U(3*nodes,i)=uzi;
+
+      [nodes,uzi] = lowerdirichletnodes(p,U(:,i+1), howlow, boundary );
+      U(3*nodes,i+1)=uzi;
+
      
 end
 toc  
 
-
-%------------POST PROCESSING:-----------------
-output_folder = 'paraview/animation';
-title = 'testing';
-
-for n=1:steps
-    State_to_vtk(output_folder,title,n,szU,tetr(:,1:4),p,U(:,n));
-end
 
 
