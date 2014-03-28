@@ -130,6 +130,5 @@ toc
 
 figure
 plot(times,bottom_swing,'r',times,top_swing,'b')
-title(sprintf('omega = %0.4e',omega))
 
 disp('Done')

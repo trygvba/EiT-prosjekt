@@ -87,7 +87,7 @@ for i=1:(steps-1)
     end
       t = T0+i*dt;
     
-      p_new=pupdate(p,U(:,i),szU);
+      p_new=pupdate(p,U(:,i));
       U(:,i+1) = K2*(U(:,i)+dt*v+0.25*dt^2*K1*U(:,i)+0.25*dt^2*(M\(f_vec2(p_new,tri,plateForce3(t-dt,omega,OLT,f),epsilon,FT) +f_vec2(p_new,tri,plateForce3(t,omega,OLT,f),epsilon,FT))));
       v = v+0.5*dt*(M\(f_vec2(p_new,tri,plateForce3(t-dt,omega,OLT,f),epsilon,FT) +f_vec2(p_new,tri,plateForce3(t,omega,OLT,f),epsilon,FT)))+0.5*dt*K1*(U(:,i+1)+U(:,i));
       
