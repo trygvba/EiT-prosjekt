@@ -42,15 +42,15 @@ disp('Setting up relevant parameters for time integration')
 T0=0;                       %Start time.
 szU=size(A,1);              %Dimension of our system.
 szP=szU/3;                  %Number of points.
-steps=1000;                  %Number of time steps.
-dt=10^(-8);                 %Temporal step size.
+steps=2000;                  %Number of time steps.
+dt=10^(-10);                 %Temporal step size.
 OLT=0.01;                   %Outer Layer Thickness.
 impactzone=.05;             %Parameter to decide which nodes are in the Dirichlet boundary.
 ballradius=max(p(:,3));     %Total radius of the ball with outher shell.
-omega=100*pi;               %Frequency of upperplate.
+omega=3*10^(6);               %Frequency of upperplate.
 howlow=-ballradius;         %Level of the lower plate.
 
-f=8*10^(-2)/X;                %Force, needs to be calibrated.
+f=8*10^(-3)/X;              %Force, needs to be calibrated.
 epsilon=0.02;               %Epsilon layer of plate.
 
 
@@ -72,7 +72,7 @@ disp('Matrices are generated.')
 %   TIME INTEGRATION (NEWMARK)
 %------------------------------------------------
 disp('Starting time integration.')
-f_last = f_vec3(p,U,tri,-f,plateDisp(T0));
+f_last = f_vec3(p,U,tri,-plateForce3(T0,omega,OLT,f),plateDisp(T0));
 acc_last = M_inv*f_last;
 
 
@@ -81,6 +81,13 @@ title = 'testing';
 Number_of_pics = 100;
 n=1;
 
+%Finding top- and bottom node:
+index_bottom = find(p(:,3)==-ballradius);
+index_top = find(p(:,3)==ballradius);
+bottom_swing = zeros(steps,1);
+top_swing = zeros(steps,1);
+times = zeros(steps,1);
+
  tic
  for i=1:(steps-1)    
      if i==1||(floor(Number_of_pics*i/steps)>floor(Number_of_pics*(i-1)/steps))
@@ -88,20 +95,26 @@ n=1;
          n = n+1;
      end
      t = T0+i*dt;
-     f_current = f_vec3(p,U,tri,-f,plateDisp(t));
+     pf =plateForce3(t,omega,OLT,f);
+     f_current = f_vec3(p,U,tri,-pf,plateDisp(t));
      U = K2*(U+dt*v+0.25*dt^2*acc_last+0.25*dt^2*M_inv*f_current);
            
 
-    [lower_nodes,uzi] = lowerdirichletnodes(p,U, howlow, boundary );
+    [lower_nodes,uzi] = lowerdirichletnodes(p,U, howlow, boundary);
     U(3*lower_nodes)=uzi;
     acc_current = M_inv*(f_current-A*U);
-    acc_current(3*lower_nodes) = 0;
     v = v+0.5*dt*(acc_last+acc_current);
     v(3*lower_nodes) = 0;
-     acc_last = acc_current;
-     f_last = f_current;     
+    acc_last = acc_current;
+    f_last = f_current;
+    
+    bottom_swing(i)=U(3*index_bottom);
+    top_swing(i) = plateDisp(t);
+    times(i) = t;
  end
  toc
+ 
+ plot(times,bottom_swing,'r',times,top_swing,'b')
  disp('Done.')
 
 

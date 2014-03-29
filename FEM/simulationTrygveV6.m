@@ -9,15 +9,15 @@ addpath(genpath('../Converters'));
 
 X = 15*10^(-6); %Length scale.
 
-Ep = 3*10^9*X;
+Ep = 3*10^9;
 vp = 0.48;
 
-rhop = X^3*950;
+rhop = 950;
 
 %Silver:
-Es = 72.4*10^9*X;
+Es = 72.4*10^9;
 vs = 0.37;
-rhos = X^3*10^4;
+rhos = 10^4;
 
 disp('Starting assembly')
 %-----------ASSEMBLY:------------------------
@@ -26,6 +26,7 @@ disp('Starting assembly')
 [p tri tetr] = loadGeo('spherewshell');
 boundary = unique(tri);
 [A M] = MassAndStiffnessMatrix3D(tetr,p,Cp,Cs,rhop,rhos);
+A = (1/X^2)*A;
 
 %--------------------------------------------
 disp('Assembly done')
@@ -43,13 +44,13 @@ disp('Setting up for time integration')
 %Parameters for time integration:
 T0=0;                       %start time.
 szU=size(A,1);              %dimension of our system.
-steps=100;                   %Number of time steps.
+steps=1000;                   %Number of time steps.
 %U = zeros(szU,steps);
 dt=10^(-9);                   %Temporal step size.
 OLT=0.01;                   %Outer Layer Thickness.
 impactzone=0.5;              %Parameter to decide which nodes are in the Dirichlet boundary.
 ballradius=max(p(:,3));     %Total radius of the ball with outher shell.
-omega=omegas(7);                 %Frequency of upperplate.
+omega=10^8/4;%omegas(7);                 %Frequency of upperplate.
 
 %Getting out nodes on the Dirichlet boundary:
 %Upper plate:
@@ -126,7 +127,8 @@ for i=1:steps
     times(i) = t;
     
 end
-toc
+time=toc;
+disp(sprintf('Time spent doing time integration: %.05fs',time))
 
 figure
 plot(times,bottom_swing,'r',times,top_swing,'b')
