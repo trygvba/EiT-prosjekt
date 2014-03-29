@@ -6,8 +6,8 @@ addpath(genpath('../Converters'));
 
 %Declaration of parameters: 
 %Polymer: 
-X = 15*10^(-6); %Length scale.
-Ep = 3*10^9*X;  
+X = 1%15*10^(-6); %Length scale.
+Ep = 3*10^6*X;  
 vp = 0.48; 
 
 rhop = 950*X^3; 
@@ -19,7 +19,7 @@ rhos = 10^4*X^3;
 
 
 %-----------ASSEMBLY:------------------------
-[Cp Cs] = StressMatrices(Ep,Es,vp,vs);
+[Cp Cs] = StressMatrices(Ep,Ep,vp,vp);
 
 [p tri tetr] = loadGeo('spherewshell');
 boundary = unique(tri);
@@ -33,9 +33,9 @@ boundary = unique(tri);
 T0=0;                       %start time.
 szU=size(A,1);              %dimension of our system.
 szP=szU/3;
-steps=100;                  %Number of time steps.
+steps=300;                  %Number of time steps.
 U = zeros(szU,steps);
-dt=1/100*steps;               %Temporal step size.
+dt=1/steps;               %Temporal step size.
 OLT=0.05;                   %Outer Layer Thickness.
 impactzone=.05;              %Parameter to decide which nodes are in the Dirichlet boundary.
 ballradius=max(p(:,3));     %Total radius of the ball with outher shell.
