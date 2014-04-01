@@ -24,6 +24,8 @@ rhos = 10^4*X^3;
 [p tri tetr] = loadGeo('spherewshell');
 boundary = unique(tri);
 [A M] = MassAndStiffnessMatrix3D(tetr,p,Cp,Cs,rhop,rhos);
+A = A;
+M = M;
 
 %% Time Integration
 
@@ -35,14 +37,14 @@ szU=size(A,1);              %dimension of our system.
 szP=szU/3;
 steps=1000;                  %Number of time steps.
 U = zeros(szU,steps);
-dt=1/100*steps;               %Temporal step size.
+dt=10^(-9);               %Temporal step size.
 OLT=0.05;                   %Outer Layer Thickness.
 impactzone=.05;              %Parameter to decide which nodes are in the Dirichlet boundary.
 ballradius=max(p(:,3));     %Total radius of the ball with outher shell.
-omega=100*pi;                 %Frequency of upperplate.
+omega=3*10^6;                 %Frequency of upperplate.
 howlow=-ballradius;
 beta=1/4;
-f=X*0.001;
+f=-8*10^(-3)/X;
 epsilon=0.02;
 disp('kym spiser lorde-suppe')
 
@@ -95,9 +97,7 @@ for i=1:(steps-1)
       [nodes,uzi] = lowerdirichletnodes(p,U(:,i+1), howlow, boundary );
       U(3*nodes,i+1)=uzi;
       v(3*nodes)=0;
-      nodes
-
-     
+    
 end
 toc  
 
