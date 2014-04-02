@@ -6,10 +6,10 @@ addpath(genpath('../Converters'));
 %Declaration of parameters:
 %Polymer:
 X = 1;%15*10^(-6); %Length scale.
-Ep = 1;%10^9*X;
+Ep = 10^9*X;
 vp = 0;
-rhop = 1;%X^(3)*950;
-harmonicMode = 4; % Harmonic mode (2n+1)
+rhop = X^(3)*950;
+harmonicMode = 1; % Harmonic mode (2n+1)
 steps=400;        % Number of time steps.
 OLT = 0.05;
 
@@ -22,7 +22,7 @@ plateAcc = @(t) OLT*omega^2*sin(omega*t);
 
 %Parameters for Paraview printing:
 output_folder = 'paraview/animation';
-title = 'FreeCubePoissonlessChosen4';
+title = 'FreeCubePoissonlessScale1';
 NumberOfPics = 400;
 
 F_last = -Fmat_up*uz_up-Fmat_low*uz_low;

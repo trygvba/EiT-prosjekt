@@ -7,7 +7,7 @@ M = sparse(3*dim,3*dim);
 
 Mp = 1/120*[2 1 1 1; 1 2 1 1; 1 1 2 1; 1 1 1 2];
 I = eye(4);
-
+h = waitbar(0,'Elements assembled');
 for k=1:N
     p1 = p(tet(k,1),:)';
     p2 = p(tet(k,2),:)';
@@ -51,9 +51,10 @@ for k=1:N
             M(i3,j3) = M(i3,j3) + T*Mp(alpha,beta);
         end
     end
+    waitbar(k/N);
 end
 %M = sparse(M);
 %A = sparse(A);
-
+close(h);
 
 end
