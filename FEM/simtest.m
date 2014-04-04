@@ -7,15 +7,15 @@ addpath(genpath('../Converters'));
 %Declaration of parameters: 
 %Polymer: 
 X = 15*10^(-6); %Length scale.
-Ep = 3*10^9;  
+Ep = 3*10^9/X;  
 vp = 0.48; 
 
-rhop = 950; 
+rhop = 950*X^3; 
 
 %Silver: 
-Es = 72.4*10^9; 
+Es = 72.4*10^9/X; 
 vs = 0.37; 
-rhos = 10^4;
+rhos = 10^4*X^3;
 
 
 %-----------ASSEMBLY:------------------------
@@ -25,7 +25,7 @@ rhos = 10^4;
 boundary = unique(tri);
 [A M] = MassAndStiffnessMatrix3D(tetr,p,Cp,Cs,rhop,rhos);
 
-A=A*(1/X^2);
+
 %% Time Integration
 
 %--------------------------------------------
@@ -34,17 +34,17 @@ A=A*(1/X^2);
 T0=0;                       %start time.
 szU=size(A,1);              %dimension of our system.
 szP=szU/3;
-steps=300;                  %Number of time steps.
+steps=250;                  %Number of time steps.
 U = zeros(szU,steps);
-dt=1/(1*steps);               %Temporal step size.
+dt=1/(1*10^10*steps);               %Temporal step size.
 OLT=0.05;                   %Outer Layer Thickness.
 impactzone=.05;              %Parameter to decide which nodes are in the Dirichlet boundary.
 ballradius=max(p(:,3));     %Total radius of the ball with outher shell.
-omega=5*pi;                 %Frequency of upperplate.
+omega=10^12*pi;                 %Frequency of upperplate.
 howlow=-ballradius;
 beta=1/4;
-f=-10
-epsilon=0.02;
+f=-(10^5)/X
+epsilon=0.01;
 disp('kym spiser lorde-suppe')
 
 %Setting initial velocity:
@@ -101,7 +101,8 @@ for i=1:(steps-1)
      
 end
 toc  
-
+index_top = find(p(:,3)==ballradius);
+plot(U(3*index_top,:));
 output_folder = 'paraview/animation';
 title = 'testing';
 

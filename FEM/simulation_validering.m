@@ -34,7 +34,7 @@ boundary = unique(tri);
 T0=0;                       %start time.
 szU=size(A,1);              %dimension of our system.
 szP=szU/3;
-steps=250;                  %Number of time steps.
+steps=1000;                  %Number of time steps.
 U = zeros(szU,steps);
 dt=1/(1*10^10*steps);               %Temporal step size.
 OLT=0.05;                   %Outer Layer Thickness.
@@ -46,6 +46,11 @@ beta=1/4;
 f=-(10^-1)/X
 epsilon=0.01;
 disp('kym spiser lorde-suppe')
+
+loadrate=1600/X;
+maxf=0;
+minf=0;
+period=0.4;
 
 %Setting initial velocity:
 v = zeros(szU,1);
@@ -89,8 +94,8 @@ for i=1:(steps-1)
       t = T0+i*dt;
      
       p_new=pupdate(p,U(:,i));
-      U(:,i+1) = K2*(U(:,i)+dt*v+0.25*dt^2*K1*U(:,i)+0.25*dt^2*(M\(f_vec2(p_new,tri,plateForce3(t-dt,omega,OLT,f),epsilon,FT) +f_vec2(p_new,tri,plateForce3(t,omega,OLT,f),epsilon,FT))));
-      v = v+0.5*dt*(M\(f_vec2(p_new,tri,plateForce3(t-dt,omega,OLT,f),epsilon,FT) +f_vec2(p_new,tri,plateForce3(t,omega,OLT,f),epsilon,FT)))+0.5*dt*K1*(U(:,i+1)+U(:,i));
+      U(:,i+1) = K2*(U(:,i)+dt*v+0.25*dt^2*K1*U(:,i)+0.25*dt^2*(M\(f_vec2(p_new,tri,plateForceValidering(f,loadrate,maxf,minf,t-dt,period),epsilon,FT) +f_vec2(p_new,tri,plateForceValidering(f,loadrate,maxf,minf,t,period),epsilon,FT))));
+      v = v+0.5*dt*(M\(f_vec2(p_new,tri,plateForceValidering(f,loadrate,maxf,minf,t-dt,period),epsilon,FT) +f_vec2(p_new,tri,plateForceValidering(f,loadrate,maxf,minf,t,period),epsilon,FT)))+0.5*dt*K1*(U(:,i+1)+U(:,i));
       
 
       [nodes,uzi] = lowerdirichletnodes(p,U(:,i+1), howlow, boundary );
@@ -98,7 +103,8 @@ for i=1:(steps-1)
       v(3*nodes)=0;
       nodes;
 
-     
+     x=1/steps;
+     waitbar(x)
 end
 toc  
 index_top = find(p(:,3)==ballradius);
@@ -109,6 +115,4 @@ title = 'testing';
 for n=1:steps
     State_to_vtk(output_folder,title,n,szU,tetr(:,1:4),p,U(:,n));
 end
-
-
 
