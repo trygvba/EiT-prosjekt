@@ -43,7 +43,7 @@ ballradius=max(p(:,3));     %Total radius of the ball with outher shell.
 omega=10^12*pi;                 %Frequency of upperplate.
 howlow=-ballradius;
 beta=1/4;
-f=-(10^5)/X
+f=-(10^-1)/X
 epsilon=0.01;
 disp('kym spiser lorde-suppe')
 
