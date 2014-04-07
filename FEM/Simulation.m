@@ -22,7 +22,7 @@ rhos = 10^4;
 [p tri tetr] = loadGeo('spherewshell');
 
 %[A M] = MassAndStiffnessMatrix3D(tetr,p,Cp,Cs,rhop,rhos);
-[A M] = HomogenousMaterial(tetr(:,1:4),p,Cp);
+[A M] = HomogenousMaterial(tetr(:,1:4),p,Cp, rhop);
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

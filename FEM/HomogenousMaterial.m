@@ -1,4 +1,4 @@
-function [A M] = HomogenousMaterial(tet,p,C)
+function [A M] = HomogenousMaterial(tet,p,C, rho)
 N = size(tet,1);
 dim = size(p,1);
 
@@ -46,9 +46,9 @@ for k=1:N
             A(i3,j2) = A(i3,j2)+T/6*a3*C*b2;
             A(i3,j3) = A(i3,j3)+T/6*a3*C*b3;
             
-            M(i1,j1) = M(i1,j1) + T*Mp(alpha,beta);
-            M(i2,j2) = M(i2,j2) + T*Mp(alpha,beta);
-            M(i3,j3) = M(i3,j3) + T*Mp(alpha,beta);
+            M(i1,j1) = M(i1,j1) + rho*T*Mp(alpha,beta);
+            M(i2,j2) = M(i2,j2) + rho*T*Mp(alpha,beta);
+            M(i3,j3) = M(i3,j3) + rho*T*Mp(alpha,beta);
         end
     end
     waitbar(k/N);

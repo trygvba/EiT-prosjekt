@@ -6,9 +6,10 @@ addpath(genpath('../Converters'));
 %Declaration of parameters:
 %Polymer:
 X = 1;%15*10^(-6); %Length scale.
-Ep = 1;%10^9*X;
-vp = 0;
-rhop = 1;%X^(3)*950;
+Ep = 10^3;%10^9*X;
+vp = 0.3;
+rhop = 10^1;%X^(3)*950;
+title = 'HeldCube-X1-E10e3-v3-r10e1-n4';
 harmonicMode = 4; % Harmonic mode (2n+1)
 steps=400;        % Number of time steps.
 OLT = 0.05;
@@ -22,14 +23,13 @@ plateAcc = @(t) OLT*omega^2*sin(omega*t);
 
 %Parameters for Paraview printing:
 output_folder = 'paraview/animation';
-title = 'FreeCubePoissonlessChosen4';
 NumberOfPics = 400;
 
 F_last = -Fmat_up*uz_up-Fmat_low*uz_low;
 Utemp_last = Amod\F_last;
 u0 = putDirichletBack(Utemp_last,lowerNodes,upperNodes,uz_low,uz_up);
-U = u0;
-
+%U = full(u0);
+U = zeros(szU,1);
 disp('Starting time integration')
 %------------------------------------------------
 %       TIME INTEGRATION (NEWMARK)

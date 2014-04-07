@@ -6,7 +6,7 @@ Cp = StressMatrix(Ep,vp);
 
 [p tri tetr] = loadGeo(GeoName);
 boundary = unique(tri);
-[A M] = HomogenousMaterial(tetr,p,Cp);%,Cs,rhop,rhos);
+[A M] = HomogenousMaterial(tetr,p,Cp, rhop);%,Cs,rhop,rhos);
 
 %--------------------------------------------
 disp('Scaling time and frequency')
@@ -15,7 +15,7 @@ maxz=max(p(:,3));     %Total radius of the ball with outer shell.
 lambdap = Ep*vp/((1+vp)*(1-2*vp));
 mup = Ep/(2*(1+vp));
 harmonicK = pi/(4*maxz); %Standing wave number with node at x such that kx = pi/2
-omega= N*harmonicK*sqrt((Ep)/rhop); % Frequency of upperplate by w = kv. Coefficient should be an odd k-multiple for damping.
+omega= N*harmonicK*sqrt((lambdap + 2*mup)/rhop); % Frequency of upperplate by w = kv. Coefficient should be an odd k-multiple for damping.
 dt = 0.05/omega; % Timestep granularity
 %Getting out nodes on the Dirichlet boundary:
 
