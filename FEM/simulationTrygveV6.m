@@ -9,15 +9,15 @@ addpath(genpath('../Converters'));
 
 X = 15*10^(-6); %Length scale.
 
-Ep = 3*10^9;
+Ep = 3*10^9*X;
 vp = 0.48;
 
-rhop = 950;
+rhop = 950*X^3;
 
 %Silver:
-Es = 72.4*10^9;
+Es = 72.4*10^9*X;
 vs = 0.37;
-rhos = 10^4;
+rhos = 10^4*X^3;
 
 disp('Starting assembly')
 %-----------ASSEMBLY:------------------------
@@ -26,8 +26,6 @@ disp('Starting assembly')
 [p tri tetr] = loadGeo('spherewshell');
 boundary = unique(tri);
 [A M] = MassAndStiffnessMatrix3D(tetr,p,Cp,Cs,rhop,rhos);
-A = (1/X^2)*A;
-
 %--------------------------------------------
 disp('Assembly done')
 disp(' ')
@@ -46,11 +44,12 @@ T0=0;                       %start time.
 szU=size(A,1);              %dimension of our system.
 steps=1000;                   %Number of time steps.
 %U = zeros(szU,steps);
-dt=10^(-9);                   %Temporal step size.
+%dt=0.5*10^(-8);                   %Temporal step size.
 OLT=0.01;                   %Outer Layer Thickness.
 impactzone=0.5;              %Parameter to decide which nodes are in the Dirichlet boundary.
 ballradius=max(p(:,3));     %Total radius of the ball with outher shell.
 omega=10^8/4;%omegas(7);                 %Frequency of upperplate.
+dt = 0.1/omega;
 
 %Getting out nodes on the Dirichlet boundary:
 %Upper plate:
