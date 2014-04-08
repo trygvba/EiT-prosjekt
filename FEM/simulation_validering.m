@@ -112,7 +112,7 @@ plot(U(3*index_top,:));
 output_folder = 'paraview/animation';
 title = 'testing';
 
-for n=1:steps
-    State_to_vtk(output_folder,title,n,szU,tetr(:,1:4),p,U(:,n));
-end
+% for n=1:steps
+%     State_to_vtk(output_folder,title,n,szU,tetr(:,1:4),p,U(:,n));
+% end
 
