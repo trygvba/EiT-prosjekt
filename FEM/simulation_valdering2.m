@@ -42,7 +42,7 @@ t_max=2*1.3*10^-6;                                                              
 steps=ceil(t_max/dt)
 
 
-U = zeros(szU,steps);
+
 OLT=0.05;                   %Outer Layer Thickness.
 impactzone=.05;              %Parameter to decide which nodes are in the Dirichlet boundary.
 ballradius=max(p(:,3));     %Total radius of the ball with outher shell.
@@ -55,12 +55,26 @@ disp('kym spiser lorde-suppe')
 
 
 
-maxf=10^-3/X;
+
+maxratio=[0.2 0.4 0.6 0.8 1];
+
+
+
+topdisp=zeros(5,steps);
+    
+    
+for J=1:1   
+    
+    maxf=10^-3/X;
+    MAXF=maxratio(J)*maxf;
+
+
+
 
 
 minf=0;
-period=t_max/9;
-loadrate=-maxf/period;
+period=t_max/3;
+loadrate=-MAXF/period;
 
 
 %Setting initial velocity:
@@ -72,7 +86,7 @@ K2=(eye(szU) - beta*dt^2*K1)\eye(szU);
 
 
 v=zeros(szU,1);
-
+U = zeros(szU,steps);
 %------------------------------------------------
 %   TIME INTEGRATION (NEWMARK)
 %------------------------------------------------
@@ -110,17 +124,12 @@ for i=1:(steps-1)
      waitbar(x)
 end
 toc
-close(h)
+
+
+
 index_top = find(p(:,3)==ballradius);
-figure
-plot(X*U(3*index_top,:));
-output_folder = 'paraview/animation';
-title = 'testing';
 
-figure
-plot(pfplot)
-% 
-% for n=1:steps
-%     State_to_vtk(output_folder,title,n,szU,tetr(:,1:4),p,U(:,n));
-% end
+topdisp(J,:)=X*U(3*index_top,:);
 
+
+end
