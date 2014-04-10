@@ -42,7 +42,7 @@ disp('Setting up for time integration')
 %Parameters for time integration:
 T0=0;                       %start time.
 szU=size(A,1);              %dimension of our system.
-steps=1000;                   %Number of time steps.
+steps=200;                   %Number of time steps.
 %U = zeros(szU,steps);
 %dt=0.5*10^(-8);                   %Temporal step size.
 OLT=0.01;                   %Outer Layer Thickness.
@@ -57,7 +57,7 @@ dt = 0.1/omega;
     [upperNodes, uz_up] = upperdirichletnodes(bound_up,p,zeros(szU,1),boundary);
     
 %Lower plate:
-    bound_low = -1.1*ballradius;
+    bound_low = -1*ballradius;
     [lowerNodes, uz_low] = lowerdirichletnodes(p,zeros(szU,1),bound_low,boundary);
 
 %Setting initial displacement:
