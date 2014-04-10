@@ -6,12 +6,12 @@ addpath(genpath('../Converters'));
 %Declaration of parameters:
 %Polymer:
 X = 1;%15*10^(-6); %Length scale.
-Ep = 10^3;%10^9*X;
+Ep = 10^(-3);%10^9*X;
 vp = 0.3;
-rhop = 10^1;%X^(3)*950;
-title = 'HeldCube-X1-E10e3-v3-r10e1-n4';
+rhop = 1;%X^(3)*950;
+title = 'Cube_verification';
 harmonicMode = 4; % Harmonic mode (2n+1)
-steps=400;        % Number of time steps.
+steps=500;        % Number of time steps.
 OLT = 0.05;
 
 %Parameters for time integration:
@@ -22,7 +22,7 @@ plateDisp = @(t) -OLT*sin(omega*t);
 plateAcc = @(t) OLT*omega^2*sin(omega*t);
 
 %Parameters for Paraview printing:
-output_folder = 'paraview/animation';
+output_folder = 'paraview/animation/QCube';
 NumberOfPics = 400;
 
 F_last = -Fmat_up*uz_up-Fmat_low*uz_low;
