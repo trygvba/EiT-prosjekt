@@ -63,7 +63,7 @@ maxratio=[0.2 0.4 0.6 0.8 1];
 topdisp=zeros(5,steps);
     
     
-for J=1:1   
+for J=1:5   
     
     maxf=10^-3/X;
     MAXF=maxratio(J)*maxf;
@@ -73,7 +73,7 @@ for J=1:1
 
 
 minf=0;
-period=t_max/3;
+period=t_max/9;
 loadrate=-MAXF/period;
 
 
