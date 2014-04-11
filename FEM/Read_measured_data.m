@@ -17,25 +17,38 @@ beadF = getBeadData(Data,24);
 clear Data;
 
 %-------------------------------------------------|
-%       Loading data from validation script:      |
+%  Loading data from validation script (THICK):   |
 %-------------------------------------------------|
-Data = load('../Data/validation.mat');
+Data = load('../Data/validation_thick.mat');
 forces = [0 200 400 600 800 1000];
-disps = zeros(6,1);
-for i=1:(length(disps)-1)
-    disps(i+1) = 10^9*max(abs(Data.topdisp(i,:)));
+disps1 = zeros(6,1);
+for i=1:(length(disps1)-1)
+    disps1(i+1) = 10^9*max(abs(Data.topdisp(i,:)));
 end
 clear Data;
+
+%-------------------------------------------------|
+%       Loading data from second validation:      |
+%-------------------------------------------------|
+Data = load('../Data/validation2.mat');
+disps2 = zeros(6,1);
+for i=1:(length(disps2)-1)
+    disps2(i+1) = 10^9*max(abs(Data.topdisp(i,:)));
+end
+clear Data;
+
+
 
 %-------------------------------------------------|
 %       Getting out comparison plot:              |
 %-------------------------------------------------|
 figure
-plot(disps,forces,'ro-')
+plot(disps1,forces,'ro-')
 hold on;
+plot(disps2,forces,'go-')
 plot(beadA(:,2),beadA(:,3),'b')
 xlabel('Displacement [nm]')
 ylabel('Force [\muN]')
-legend('Simulated','Measured')
+legend('Simulated (200nm shell)','Simulated (100nm shell)','Measured')
 grid on;
-axis([disps(1) max(beadA(:,2)) forces(1) forces(end)]);
+axis([0 500 0 1000]);
