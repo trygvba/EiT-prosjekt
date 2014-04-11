@@ -21,7 +21,7 @@ rhos = 10.5*X^3;
 %-----------ASSEMBLY:------------------------
 [Cp Cs] = StressMatrices(Ep,Es,vp,vs);
 
-[p tri tetr] = loadGeo('spherewshell');
+[p tri tetr] = loadGeo('spherewshell_thick');
 
 boundary = unique(tri);
 [A M] = MassAndStiffnessMatrix3D(tetr,p,Cp,Cs,rhop,rhos);
