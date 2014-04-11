@@ -4,16 +4,18 @@ format long;
 addpath(genpath('../Converters'));
 
 
-%Declaration of parameters:
-%Polymer:
-Ep = 0.8*10^9;
-vp = 0.46;
-rhop = 950;
+%Declaration of parameters: 
+%Polymer: 
+X = 15*10^(-6)/2; %Length scale.
+Ep = 2*10^9*X;  
+vp = 0.3; 
 
-%Silver:
-Es = 72.4*10^9;
-vs = 0.37;
-rhos = 10^4;
+rhop = 1.02*10^3*X^3; 
+
+%Silver: 
+Es = 80*10^9*X; 
+vs = 0.35; 
+rhos = 10.5*X^3;
 
 
 %-----------ASSEMBLY:------------------------
@@ -21,25 +23,26 @@ rhos = 10^4;
 
 [p tri tetr] = loadGeo('spherewshell');
 
-%[A M] = MassAndStiffnessMatrix3D(tetr,p,Cp,Cs,rhop,rhos);
-[A M] = HomogenousMaterial(tetr(:,1:4),p,Cp, rhop);
-
+boundary = unique(tri);
+[A M] = MassAndStiffnessMatrix3D(tetr,p,Cp,Cs,rhop,rhos);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 [V D] = eigs(A,M,20,'sm');
-eigenvalues = diag(D);
+eigenvalues = sqrt(diag(D));
 %Pick the n'th eigenvalue we should analyse:
 n = 8;
 %omega = eigenvalues(n);
 u = V(:,n);
 
 alpha=0.5;
-
+phase = @(t) alpha*cos(eigenvalues(n)*t);
 
 %Newmark 2beta method
-steps=100;     %Number of time increments.
+dt=10^-9;
+t_span=3*10^-8;
+steps=;     %Number of time increments.
 sz=size(u,1);
-dt=0.00001;      %Temporal step spacing.
+              %Temporal step spacing.
 U=zeros(sz,steps);
 beta=0.25;
 NumberOfPics = 100; %BEWARE OF NUMBER OF VTK-FILES.
@@ -52,18 +55,11 @@ K2=(eye(sz) - beta*dt^2*K1)\eye(sz);
 
 v=zeros(sz,1);
 U(:,1)=alpha*u;
-
+Uana = U;
 output_folder = 'paraview/animation';
 title = 'testing';
 
-%Dirichlet boundary conditions
-
-D=0.01; %amplitude of displacement
-omega=2*pi/10; %frequency of displacement
-
-dp =@(D,t,omega)  1.02- D*cos(omega*t);
-
-
+err=zeros(1,steps-1);
 
 
 
@@ -74,21 +70,16 @@ for i = 1:(steps-1)
         n = n+1;
     end
     U(:,i+1)=K2*(U(:,i) + dt*v + ((1- 2*beta)/2)*dt^2*K1*U(:,i));
+    Uana(:,i+1) = Uana(:,1)*phase(i*dt);
     v=v + (dt/2)*K1*(U(:,i) +U(:,i+1));
+    
+    err(i)=max(abs(U(:,i+1)-Uana(:,i+1)));
+    
     x=i/steps;
     waitbar(x)
 end
 
-%ODE45 versucht:
-% sz =size(u,1);
-% K1 = M\A;
-% F = @(t,u) [zeros(sz) K1; eye(sz) zeros(sz)]*u;
-% u0 =[zeros(sz,1); alpha*u];
-% tspan = [linspace(0,1,100)];
-% [TOUT YOUT] = ode45(F,tspan,u0);
-% U = YOUT(:,(sz+1):end)';
 
 
 
 
-    

@@ -60,7 +60,7 @@ maxratio=[0.2 0.4 0.6 0.8 1];
 
 
 
-topdisp=zeros(5,steps);
+topdisp=[];
     
     
 for J=1:5   
@@ -127,9 +127,12 @@ toc
 
 
 
-index_top = find(p(:,3)==ballradius);
-
-topdisp(J,:)=X*U(3*index_top,:);
+index_top = find(p(:,3)>=0.99*ballradius);
+for k=1:length(index_top)
+    
+topdisp=[topdisp;
+    X*U(3*index_top(k),:)];
+end
 
 
 end
