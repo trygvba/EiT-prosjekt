@@ -37,9 +37,11 @@ alpha=0.5;
 
 
 %Newmark 2beta method
+dt=10^-9;
+t_span=3*10^-8;
 steps=100;     %Number of time increments.
 sz=size(u,1);
-dt=0.00001;      %Temporal step spacing.
+              %Temporal step spacing.
 U=zeros(sz,steps);
 beta=0.25;
 NumberOfPics = 100; %BEWARE OF NUMBER OF VTK-FILES.
@@ -78,16 +80,6 @@ for i = 1:(steps-1)
     x=i/steps;
     waitbar(x)
 end
-
-%ODE45 versucht:
-% sz =size(u,1);
-% K1 = M\A;
-% F = @(t,u) [zeros(sz) K1; eye(sz) zeros(sz)]*u;
-% u0 =[zeros(sz,1); alpha*u];
-% tspan = [linspace(0,1,100)];
-% [TOUT YOUT] = ode45(F,tspan,u0);
-% U = YOUT(:,(sz+1):end)';
-
 
 
 
