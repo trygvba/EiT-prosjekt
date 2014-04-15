@@ -1,12 +1,12 @@
-function [p, tri, tetr, szU, K1, K2, Amod, Mmod_inv, v,Fmat_up, Fmat_low, F_acc, lowerNodes, uz_low,upperNodes, uz_up,omega, dt, x_plates, y_plates] = Assembly_verification(GeoName,Ep,vp,rhop,N)
+function [p, tri, tetr, szU, K1, K2, Amod, Mmod_inv, v,Fmat_up, Fmat_low, F_acc, lowerNodes, uz_low,upperNodes, uz_up,omega, dt, x_plates, y_plates] = Assembly_verification(GeoName,Ep,vp,rhop,N, granularity)
 
 disp('Starting assembly')
 %-----------ASSEMBLY:------------------------
 Cp = StressMatrix(Ep,vp);
 
-[p tri tetr] = loadGeo(GeoName);
+[p, tri, tetr] = loadGeo(GeoName);
 boundary = unique(tri);
-[A M] = HomogenousMaterial(tetr,p,Cp, rhop);%,Cs,rhop,rhos);
+[A, M] = HomogenousMaterial(tetr,p,Cp, rhop);%,Cs,rhop,rhos);
 
 %--------------------------------------------
 disp('Scaling time and frequency')
@@ -16,7 +16,7 @@ lambdap = Ep*vp/((1+vp)*(1-2*vp));
 mup = Ep/(2*(1+vp));
 harmonicK = pi/(4*maxz); %Standing wave number with node at x such that kx = pi/2
 omega= N*harmonicK*sqrt((lambdap + 2*mup)/rhop); % Frequency of upperplate by w = kv. Coefficient should be an odd k-multiple for damping.
-dt = 0.01/omega; % Timestep granularity
+dt = granularity/omega; % Timestep granularity
 %Getting out nodes on the Dirichlet boundary:
 
 disp('Modifying matrices according to boundary conditions')
@@ -30,7 +30,7 @@ disp('Modifying matrices according to boundary conditions')
     [lowerNodes, uz_low] = lowerdirichletnodes(p,zeros(szU,1),bound_low,boundary);
   
 %Side plates:
-    [x_plates y_plates] = getSidePlates(p,tri);
+    [x_plates, y_plates] = getSidePlates(p,tri);
 
 
     
