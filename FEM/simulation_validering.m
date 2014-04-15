@@ -19,7 +19,7 @@ rhos = 10.5*X^3;
 
 
 %-----------ASSEMBLY:------------------------
-[Cp Cs] = StressMatrices(Ep,Ep,vp,vp);
+[Cp Cs] = StressMatrices(Ep,Es,vp,vs);
 
 [p tri tetr] = loadGeo('spherewshell');
 

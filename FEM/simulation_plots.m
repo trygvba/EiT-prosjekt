@@ -51,22 +51,21 @@ howlow=-ballradius;
 beta=1/4;
 f=-(10^-1);%/X;
 epsilon=0.05;
-disp('kym spiser lorde-suppe')
 
 
 
 
-maxratio=[0.2 0.4 0.6 0.8 1];
+
+
 
 
 
 topdisp=[];
     
+   
     
-for J=1:5   
-    
-    maxf=10^-3/X;
-    MAXF=maxratio(J)*maxf;
+maxf=10^-3/X;
+MAXF=10*maxf;
 
 
 
@@ -127,12 +126,14 @@ toc
 
 
 
-index_top = find(p(:,3)>=0.99*ballradius);
-for k=1:length(index_top)
-    
-topdisp=[topdisp;
-    X*U(3*index_top(k),:)];
-end
 
 
-end
+output_folder = 'paraview/animation';
+title = 'testing';
+
+figure
+plot(pfplot)
+ 
+ for n=1:steps
+     State_to_vtk(output_folder,title,n,szU,tetr(:,1:4),p,U(:,n));
+ end
