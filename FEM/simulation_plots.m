@@ -10,7 +10,7 @@ X = 1; %Length scale.
 Ep = 2*10^6;  
 vp = 0.3; 
 
-rhop = 1.02; 
+rhop = 1.02*10; 
 
 %Silver: 
 Es = 80*10^9; 
@@ -37,9 +37,9 @@ szU=size(A,1);              %dimension of our system.
 szP=szU/3;
                 
 %Steps etc
-dt=1/(1*10^7);
-t_max=4*1.3*10^-5;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       300*dt;
-steps=ceil(t_max/dt)
+dt=1/(1*10^4);
+t_max=500*dt;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      300*dt;
+steps=ceil(t_max/dt);
 
 
 
@@ -74,7 +74,7 @@ MAXF=(2/3)*(Ep*sqrt(ballradius)/(1-vp^2))*(max_disp^(3/2));
 
 minf=0;
 period=t_max/9;
-loadrate=-MAXF/period;
+loadrate=MAXF/period;
 
 
 %Setting initial velocity:
@@ -113,7 +113,7 @@ for i=1:(steps-1)
       U(:,i+1) = K2*(U(:,i)+dt*v+0.25*dt^2*K1*U(:,i)+0.25*dt^2*(M\(f_vec2(p_new,tri,plateForceValidering2(f,loadrate,maxf,minf,t-dt,period),epsilon,FT) +f_vec2(p_new,tri,plateForceValidering2(f,loadrate,maxf,minf,t,period),epsilon,FT))));
       v = v+0.5*dt*(M\(f_vec2(p_new,tri,plateForceValidering2(f,loadrate,maxf,minf,t-dt,period),epsilon,FT) +f_vec2(p_new,tri,plateForceValidering2(f,loadrate,maxf,minf,t,period),epsilon,FT)))+0.5*dt*K1*(U(:,i+1)+U(:,i));
       
-      pfplot(i)=plateForceValidering1(f,loadrate,maxf,minf,t-dt,period);
+      pfplot(i)=plateForceValidering2(f,loadrate,maxf,minf,t-dt,period);
 
       [nodes,uzi] = lowerdirichletnodes(p,U(:,i+1), howlow, boundary );
       U(3*nodes,i+1)=uzi;
