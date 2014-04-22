@@ -97,7 +97,7 @@ disp('Starting time integration')
 %Parameters for Paraview printing:
 output_folder = 'paraview/animation';
 title = 'testing';
-NumberOfPics = 100;
+NumberOfPics = 200;
 n=1;
 
 %Finding top- and bottom node:
