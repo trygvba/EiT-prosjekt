@@ -7,15 +7,15 @@ addpath(genpath('../Converters'));
 %Declaration of parameters: 
 %Polymer: 
 X = 1; %Length scale.
-Ep = 2*10^9*X;  
+Ep = 2*10^6;  
 vp = 0.3; 
 
-rhop = 1.02*10^3*X^3; 
+rhop = 1.02; 
 
 %Silver: 
-Es = 80*10^9*X; 
+Es = 80*10^9; 
 vs = 0.35; 
-rhos = 10.5*X^3;
+rhos = 10.5;
 
 
 %-----------ASSEMBLY:------------------------
@@ -24,7 +24,7 @@ rhos = 10.5*X^3;
 [p tri tetr] = loadGeo('spherewshell_thick');
 
 boundary = unique(tri);
-[A M] = MassAndStiffnessMatrix3D(tetr,p,Cp,Cs,rhop,rhos);
+[A M] = MassAndStiffnessMatrix3D(tetr,p,Cp,Cs,rhop,rhop);
 
 
 %% Time Integration
@@ -46,6 +46,7 @@ steps=ceil(t_max/dt)
 OLT=0.05;                   %Outer Layer Thickness.
 impactzone=.05;              %Parameter to decide which nodes are in the Dirichlet boundary.
 ballradius=max(p(:,3));     %Total radius of the ball with outher shell.
+lower_ballradius=min(p(:,3));
 howlow=-ballradius;
 beta=1/4;
 f=0;
@@ -109,10 +110,10 @@ for i=1:(steps-1)
       t = T0+i*dt;
      
       p_new=pupdate(p,U(:,i));
-      U(:,i+1) = K2*(U(:,i)+dt*v+0.25*dt^2*K1*U(:,i)+0.25*dt^2*(M\(f_vec2(p_new,tri,plateForceValidering1(f,loadrate,maxf,minf,t-dt,period),epsilon,FT) +f_vec2(p_new,tri,plateForceValidering(f,loadrate,maxf,minf,t,period),epsilon,FT))));
-      v = v+0.5*dt*(M\(f_vec2(p_new,tri,plateForceValidering1(f,loadrate,maxf,minf,t-dt,period),epsilon,FT) +f_vec2(p_new,tri,plateForceValidering1(f,loadrate,maxf,minf,t,period),epsilon,FT)))+0.5*dt*K1*(U(:,i+1)+U(:,i));
+      U(:,i+1) = K2*(U(:,i)+dt*v+0.25*dt^2*K1*U(:,i)+0.25*dt^2*(M\(f_vec2(p_new,tri,plateForceValidering2(f,loadrate,maxf,minf,t-dt,period),epsilon,FT) +f_vec2(p_new,tri,plateForceValidering2(f,loadrate,maxf,minf,t,period),epsilon,FT))));
+      v = v+0.5*dt*(M\(f_vec2(p_new,tri,plateForceValidering2(f,loadrate,maxf,minf,t-dt,period),epsilon,FT) +f_vec2(p_new,tri,plateForceValidering2(f,loadrate,maxf,minf,t,period),epsilon,FT)))+0.5*dt*K1*(U(:,i+1)+U(:,i));
       
-      pfplot(i)=plateForceValidering1(f,loadrate,maxf,minf,t-dt,period)*X;
+      pfplot(i)=plateForceValidering1(f,loadrate,maxf,minf,t-dt,period);
 
       [nodes,uzi] = lowerdirichletnodes(p,U(:,i+1), howlow, boundary );
       U(3*nodes,i+1)=uzi;
@@ -126,9 +127,11 @@ toc
 
 
 index_top = find(p(:,3)==ballradius);
+index_bottom=find(p(:,3)==lower_ballradius)
 figure
 plot(X*U(3*index_top,:));
-
+figure
+plot(X*U(3*index_bottom,:));
 
 
 % output_folder = 'paraview/animation';

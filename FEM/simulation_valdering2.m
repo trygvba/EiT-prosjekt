@@ -104,7 +104,7 @@ for i=1:(steps-1)
       t = T0+i*dt;
      
       p_new=pupdate(p,U(:,i));
-      U(:,i+1) = K2*(U(:,i)+dt*v+0.25*dt^2*K1*U(:,i)+0.25*dt^2*(M\(f_vec2(p_new,tri,plateForceValidering1(f,loadrate,maxf,minf,t-dt,period),epsilon,FT) +f_vec2(p_new,tri,plateForceValidering(f,loadrate,maxf,minf,t,period),epsilon,FT))));
+      U(:,i+1) = K2*(U(:,i)+dt*v+0.25*dt^2*K1*U(:,i)+0.25*dt^2*(M\(f_vec2(p_new,tri,plateForceValidering1(f,loadrate,maxf,minf,t-dt,period),epsilon,FT) +f_vec2(p_new,tri,plateForceValidering1(f,loadrate,maxf,minf,t,period),epsilon,FT))));
       v = v+0.5*dt*(M\(f_vec2(p_new,tri,plateForceValidering1(f,loadrate,maxf,minf,t-dt,period),epsilon,FT) +f_vec2(p_new,tri,plateForceValidering1(f,loadrate,maxf,minf,t,period),epsilon,FT)))+0.5*dt*K1*(U(:,i+1)+U(:,i));
       
       pfplot(i)=plateForceValidering1(f,loadrate,maxf,minf,t-dt,period)*X;
