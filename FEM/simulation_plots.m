@@ -7,10 +7,12 @@ addpath(genpath('../Converters'));
 %Declaration of parameters: 
 %Polymer: 
 X = 1; %Length scale.
+
 Ep = 2*10^6;  
 vp = 0.3; 
 
 rhop = 1.02*10; 
+
 
 %Silver: 
 Es = 80*10^9; 
@@ -37,9 +39,11 @@ szU=size(A,1);              %dimension of our system.
 szP=szU/3;
                 
 %Steps etc
-dt=1/(1*10^4);
-t_max=500*dt;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      300*dt;
-steps=ceil(t_max/dt);
+
+dt=1/(1*10^3);
+t_max=500*dt;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       300*dt;
+steps=ceil(t_max/dt)
+
 
 
 
