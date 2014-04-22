@@ -46,21 +46,15 @@ steps=ceil(t_max/dt)
 OLT=0.05;                   %Outer Layer Thickness.
 impactzone=.05;              %Parameter to decide which nodes are in the Dirichlet boundary.
 ballradius=max(p(:,3));     %Total radius of the ball with outher shell.
-omega=10^12*pi;                 %Frequency of upperplate.
 howlow=-ballradius;
 beta=1/4;
-f=-(10^-1);%/X;
 epsilon=0.05;
-disp('kym spiser lorde-suppe')
-
-
-
 
 maxratio=[0.2 0.4 0.6 0.8 1];
 
 
 
-topdisp=zeros(5,steps);
+topdisp=[];
     
     
 for J=1:5   
@@ -127,9 +121,12 @@ toc
 
 
 
-index_top = find(p(:,3)==ballradius);
-
-topdisp(J,:)=X*U(3*index_top,:);
+index_top = find(p(:,3)>=0.99*ballradius);
+for k=1:length(index_top)
+    
+topdisp=[topdisp;
+    X*U(3*index_top(k),:)];
+end
 
 
 end
