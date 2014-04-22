@@ -33,7 +33,7 @@ szP=szU/3;
 %Steps etc
 
 dt=1/(1*10^3);
-t_max=1000*dt;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       300*dt;
+t_max=600*dt;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       300*dt;
 steps=ceil(t_max/dt)
 
 
@@ -50,7 +50,7 @@ epsilon=0.05;
 
 plotzz=[];
 
-max_disp=linspace(0.005,0.02,5);
+max_disp=linspace(0.005,0.01,5);
 topdisp = [];
 
 for j=1:5
@@ -91,7 +91,7 @@ ft=p(FT(1,:),:);
 % 
 pfplot=zeros(1,steps-1);
 tic
-h = waitbar(0,sprintf('Time integrating...%d/%d',j,length(max_disp));
+h = waitbar(0,sprintf('Time integrating...%d/%d',j,length(max_disp)));
 for i=1:(steps-1)    
 %     if i==1||(floor(Number_of_pics*i/steps)>floor(Number_of_pics*(i-1)/steps))
 %         State_to_vtk(output_folder,title,n,szU,tetr(:,1:4),p,U(:,i));
