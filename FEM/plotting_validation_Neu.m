@@ -1,7 +1,7 @@
 max_disp = load('../Data/maxdisp.mat');
 top_disp = load('../Data/topdisp.mat');
 
-max_disp = max_disp.max_disp';
+max_disp = max_disp.max_disp'
 top_disp = top_disp.topdisp;
 
 v = 0.3;
@@ -15,4 +15,8 @@ plot(max_disp,F,'r');
 hold on
 grid on
 plot(top_disp,F,'b');
+xlabel('Displacement')
+ylabel('Force')
+legend('Analytic','Simulated')
+
 
