@@ -48,7 +48,7 @@ impactzone=.05;              %Parameter to decide which nodes are in the Dirichl
 ballradius=max(p(:,3));     %Total radius of the ball with outher shell.
 howlow=-ballradius;
 beta=1/4;
-f=0;
+
 epsilon=0.05;
 
 
@@ -62,10 +62,10 @@ epsilon=0.05;
 topdisp=[];
     
 
-max_disp=0.01;
+max_disp=0.3;
     
 maxf=0;
-MAXF=(2/3)*(Ep*sqrt(ballradius)/(1-vp^2))*(max_disp^(3/2));
+MAXF=10*(2/3)*(Ep*sqrt(ballradius)/(1-vp^2))*(max_disp^(3/2));
 
 
 
@@ -131,12 +131,12 @@ plot(X*U(3*index_top,:));
 
 
 
-% output_folder = 'paraview/animation';
-% title = 'testing';
+output_folder = 'paraview/animation';
+title = 'testing';
 
 figure
 plot(pfplot)
  
-%  for n=1:steps
-%      State_to_vtk(output_folder,title,n,szU,tetr(:,1:4),p,U(:,n));
-%  end
+ for n=1:steps
+     State_to_vtk(output_folder,title,n,szU,tetr(:,1:4),p,U(:,n));
+ end

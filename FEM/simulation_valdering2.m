@@ -46,15 +46,9 @@ steps=ceil(t_max/dt)
 OLT=0.05;                   %Outer Layer Thickness.
 impactzone=.05;              %Parameter to decide which nodes are in the Dirichlet boundary.
 ballradius=max(p(:,3));     %Total radius of the ball with outher shell.
-omega=10^12*pi;                 %Frequency of upperplate.
 howlow=-ballradius;
 beta=1/4;
-f=-(10^-1);%/X;
 epsilon=0.05;
-disp('kym spiser lorde-suppe')
-
-
-
 
 maxratio=[0.2 0.4 0.6 0.8 1];
 
