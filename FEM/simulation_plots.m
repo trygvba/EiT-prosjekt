@@ -7,10 +7,10 @@ addpath(genpath('../Converters'));
 %Declaration of parameters: 
 %Polymer: 
 X = 1; %Length scale.
-Ep = 2*10^9*X;  
+Ep = 2*10^6*X;  
 vp = 0.3; 
 
-rhop = 1.02*10^3*X^3; 
+rhop = 1.02*X^3; 
 
 %Silver: 
 Es = 80*10^9*X; 
@@ -24,7 +24,7 @@ rhos = 10.5*X^3;
 [p tri tetr] = loadGeo('spherewshell_thick');
 
 boundary = unique(tri);
-[A M] = MassAndStiffnessMatrix3D(tetr,p,Cp,Cs,rhop,rhos);
+[A M] = MassAndStiffnessMatrix3D(tetr,p,Cp,Cs,rhop,rhop);
 
 
 %% Time Integration
@@ -37,8 +37,8 @@ szU=size(A,1);              %dimension of our system.
 szP=szU/3;
                 
 %Steps etc
-dt=1/(1*10^7);
-t_max=4*1.3*10^-5;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       300*dt;
+dt=1/(1*10^3);
+t_max=500*dt;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       300*dt;
 steps=ceil(t_max/dt)
 
 
