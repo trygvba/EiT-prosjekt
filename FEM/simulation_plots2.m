@@ -33,7 +33,7 @@ szP=szU/3;
 %Steps etc
 
 dt=1/(1*10^3);
-t_max=600*dt;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       300*dt;
+t_max=100*dt;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       300*dt;
 steps=ceil(t_max/dt)
 
 
@@ -50,17 +50,18 @@ epsilon=0.05;
 
 plotzz=[];
 
-max_disp=linspace(0.005,0.01,5);
-topdisp = [];
+max_disp=[0.01];
+top_disp = [];
+bottom_disp=[];
 
-for j=1:5
+for j=1:1
    
 maxf=0;
 MAXF=(4/3)*(Ep*sqrt(ballradius)/(1-vp^2))*(max_disp(j)^(3/2));
 
 minf=0;
-period=t_max/9;
-loadrate=MAXF/period;
+period=t_max/5;
+loadrate=-MAXF/period;
 
 
 %Setting initial velocity:
@@ -76,6 +77,7 @@ U = zeros(szU,steps);
 
 
 index_top = find(p(:,3)==ballradius);
+index_bottom = find(p(:,3)==-ballradius);
 
 %------------------------------------------------
 %   TIME INTEGRATION (NEWMARK)
@@ -100,10 +102,10 @@ for i=1:(steps-1)
       t = T0+i*dt;
      
       p_new=pupdate(p,U(:,i));
-      U(:,i+1) = K2*(U(:,i)+dt*v+0.25*dt^2*K1*U(:,i)+0.25*dt^2*(M\(f_vec2(p_new,tri,plateForceValidering2(f,loadrate,maxf,minf,t-dt,period),epsilon,FT) +f_vec2(p_new,tri,plateForceValidering2(f,loadrate,maxf,minf,t,period),epsilon,FT))));
-      v = v+0.5*dt*(M\(f_vec2(p_new,tri,plateForceValidering2(f,loadrate,maxf,minf,t-dt,period),epsilon,FT) +f_vec2(p_new,tri,plateForceValidering2(f,loadrate,maxf,minf,t,period),epsilon,FT)))+0.5*dt*K1*(U(:,i+1)+U(:,i));
+      U(:,i+1) = K2*(U(:,i)+dt*v+0.25*dt^2*K1*U(:,i)+0.25*dt^2*(M\(f_vec2(p_new,tri,plateForceValidering1(f,loadrate,maxf,minf,t-dt,period),epsilon,FT) +f_vec2(p_new,tri,plateForceValidering1(f,loadrate,maxf,minf,t,period),epsilon,FT))));
+      v = v+0.5*dt*(M\(f_vec2(p_new,tri,plateForceValidering1(f,loadrate,maxf,minf,t-dt,period),epsilon,FT) +f_vec2(p_new,tri,plateForceValidering1(f,loadrate,maxf,minf,t,period),epsilon,FT)))+0.5*dt*K1*(U(:,i+1)+U(:,i));
       
-      pfplot(i)=plateForceValidering2(f,loadrate,maxf,minf,t-dt,period);
+      pfplot(i)=plateForceValidering1(f,loadrate,maxf,minf,t-dt,period);
 
       [nodes,uzi] = lowerdirichletnodes(p,U(:,i+1), howlow, boundary );
       U(3*nodes,i+1)=uzi;
@@ -112,12 +114,19 @@ for i=1:(steps-1)
 
      x=i/steps;
      waitbar(x)
+     top_disp=[top_disp;max(abs(U(3*index_top,i)))];
+     bottom_disp=[bottom_disp; max(abs(U(3*index_bottom,i)))]
 end
 toc
 
-
+plot(pfplot)
 plotzz=[plotzz;U(3*index_top,:)];
-topdisp=[topdisp;-min(U(3*index_top,:))];
+
+
+figure
+plot(top_disp)
+figure
+plot(bottom_disp)
 
 
 end

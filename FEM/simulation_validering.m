@@ -6,7 +6,7 @@ addpath(genpath('../Converters'));
 
 %Declaration of parameters: 
 %Polymer: 
-X = 15*10^(-6)/2; %Length scale.
+X = 1;%15*10^(-6)/2; %Length scale.
 Ep = 2*10^9*X;  
 vp = 0.3; 
 
@@ -19,12 +19,12 @@ rhos = 10.5*X^3;
 
 
 %-----------ASSEMBLY:------------------------
-[Cp Cs] = StressMatrices(Ep,Es,vp,vs);
+[Cp Cs] = StressMatrices(Ep,Ep,vp,vp);
 
 [p tri tetr] = loadGeo('spherewshell');
 
 boundary = unique(tri);
-[A M] = MassAndStiffnessMatrix3D(tetr,p,Cp,Cs,rhop,rhos);
+[A M] = MassAndStiffnessMatrix3D(tetr,p,Cp,Cs,rhop,rhop);
 
 
 %% Time Integration
@@ -37,8 +37,8 @@ szU=size(A,1);              %dimension of our system.
 szP=szU/3;
                 
 %Steps etc
-dt=1/(1*10^9);
-t_max=2*1.3*10^-6;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       300*dt;
+dt=1/(1*10^5);
+t_max=12*10^-3;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       300*dt;
 steps=ceil(t_max/dt)
 
 
@@ -55,11 +55,11 @@ disp('kym spiser lorde-suppe')
 
 
 
-maxf=10^-3/X;
+maxf=10^10/X;
 
 
 minf=0;
-period=t_max/9;
+period=t_max/18;
 loadrate=-maxf/period;
 
 
@@ -119,8 +119,8 @@ title = 'testing';
 
 figure
 plot(pfplot)
-% 
-% for n=1:steps
-%     State_to_vtk(output_folder,title,n,szU,tetr(:,1:4),p,U(:,n));
-% end
+ 
+for n=1:steps
+    State_to_vtk(output_folder,title,n,szU,tetr(:,1:4),p,U(:,n));
+end
 
