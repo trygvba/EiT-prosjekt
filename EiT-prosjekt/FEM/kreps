@@ -1,0 +1,8 @@
+
+
+k=10000000;
+for i=1:k
+    x=i/k;
+    waitbar(x);
+end
+
