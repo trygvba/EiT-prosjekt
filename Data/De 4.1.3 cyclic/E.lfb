@@ -1,0 +1,1570 @@
+File Version: Hysitron FBControls 3.0 Release
+Mode: Load-controlled nanoindentation
+Preload: 2 µN
+Drift Monitor Time: 40 s
+Drift Analysis Time: 20 s
+Drift Rate: 0.13322 nm/s
+Lift Height: 10 nm
+Maximum Demand: 1000 µN
+Number of Segments: 120
+Segment Number: 0
+Segment Type: 0 LINEAR
+Segment Begin Time: 0 s
+Segment End Time: 0.124988 s
+Segment Begin Demand: 0 µN
+Segment End Demand: 1000 µN
+Segment Number: 1
+Segment Type: 0 LINEAR
+Segment Begin Time: 0.124988 s
+Segment End Time: 0.224988 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 2
+Segment Type: 0 LINEAR
+Segment Begin Time: 0.224988 s
+Segment End Time: 0.324988 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 3
+Segment Type: 0 LINEAR
+Segment Begin Time: 0.324988 s
+Segment End Time: 0.424988 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 4
+Segment Type: 0 LINEAR
+Segment Begin Time: 0.424988 s
+Segment End Time: 0.524987 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 5
+Segment Type: 0 LINEAR
+Segment Begin Time: 0.524987 s
+Segment End Time: 0.624988 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 6
+Segment Type: 0 LINEAR
+Segment Begin Time: 0.624988 s
+Segment End Time: 0.724987 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 7
+Segment Type: 0 LINEAR
+Segment Begin Time: 0.724987 s
+Segment End Time: 0.824987 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 8
+Segment Type: 0 LINEAR
+Segment Begin Time: 0.824987 s
+Segment End Time: 0.924987 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 9
+Segment Type: 0 LINEAR
+Segment Begin Time: 0.924987 s
+Segment End Time: 1.02499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 10
+Segment Type: 0 LINEAR
+Segment Begin Time: 1.02499 s
+Segment End Time: 1.12499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 11
+Segment Type: 0 LINEAR
+Segment Begin Time: 1.12499 s
+Segment End Time: 1.22499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 12
+Segment Type: 0 LINEAR
+Segment Begin Time: 1.22499 s
+Segment End Time: 1.32499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 13
+Segment Type: 0 LINEAR
+Segment Begin Time: 1.32499 s
+Segment End Time: 1.42499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 14
+Segment Type: 0 LINEAR
+Segment Begin Time: 1.42499 s
+Segment End Time: 1.52499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 15
+Segment Type: 0 LINEAR
+Segment Begin Time: 1.52499 s
+Segment End Time: 1.62499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 16
+Segment Type: 0 LINEAR
+Segment Begin Time: 1.62499 s
+Segment End Time: 1.72499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 17
+Segment Type: 0 LINEAR
+Segment Begin Time: 1.72499 s
+Segment End Time: 1.82499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 18
+Segment Type: 0 LINEAR
+Segment Begin Time: 1.82499 s
+Segment End Time: 1.92499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 19
+Segment Type: 0 LINEAR
+Segment Begin Time: 1.92499 s
+Segment End Time: 2.02499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 20
+Segment Type: 0 LINEAR
+Segment Begin Time: 2.02499 s
+Segment End Time: 2.12499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 21
+Segment Type: 0 LINEAR
+Segment Begin Time: 2.12499 s
+Segment End Time: 2.22499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 22
+Segment Type: 0 LINEAR
+Segment Begin Time: 2.22499 s
+Segment End Time: 2.32499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 23
+Segment Type: 0 LINEAR
+Segment Begin Time: 2.32499 s
+Segment End Time: 2.42499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 24
+Segment Type: 0 LINEAR
+Segment Begin Time: 2.42499 s
+Segment End Time: 2.52499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 25
+Segment Type: 0 LINEAR
+Segment Begin Time: 2.52499 s
+Segment End Time: 2.62499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 26
+Segment Type: 0 LINEAR
+Segment Begin Time: 2.62499 s
+Segment End Time: 2.72499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 27
+Segment Type: 0 LINEAR
+Segment Begin Time: 2.72499 s
+Segment End Time: 2.82499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 28
+Segment Type: 0 LINEAR
+Segment Begin Time: 2.82499 s
+Segment End Time: 2.92499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 29
+Segment Type: 0 LINEAR
+Segment Begin Time: 2.92499 s
+Segment End Time: 3.02499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 30
+Segment Type: 0 LINEAR
+Segment Begin Time: 3.02499 s
+Segment End Time: 3.12499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 31
+Segment Type: 0 LINEAR
+Segment Begin Time: 3.12499 s
+Segment End Time: 3.22499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 32
+Segment Type: 0 LINEAR
+Segment Begin Time: 3.22499 s
+Segment End Time: 3.32499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 33
+Segment Type: 0 LINEAR
+Segment Begin Time: 3.32499 s
+Segment End Time: 3.42499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 34
+Segment Type: 0 LINEAR
+Segment Begin Time: 3.42499 s
+Segment End Time: 3.52499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 35
+Segment Type: 0 LINEAR
+Segment Begin Time: 3.52499 s
+Segment End Time: 3.62499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 36
+Segment Type: 0 LINEAR
+Segment Begin Time: 3.62499 s
+Segment End Time: 3.72499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 37
+Segment Type: 0 LINEAR
+Segment Begin Time: 3.72499 s
+Segment End Time: 3.82499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 38
+Segment Type: 0 LINEAR
+Segment Begin Time: 3.82499 s
+Segment End Time: 3.92499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 39
+Segment Type: 0 LINEAR
+Segment Begin Time: 3.92499 s
+Segment End Time: 4.02499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 40
+Segment Type: 0 LINEAR
+Segment Begin Time: 4.02499 s
+Segment End Time: 4.12499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 41
+Segment Type: 0 LINEAR
+Segment Begin Time: 4.12499 s
+Segment End Time: 4.22499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 42
+Segment Type: 0 LINEAR
+Segment Begin Time: 4.22499 s
+Segment End Time: 4.32499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 43
+Segment Type: 0 LINEAR
+Segment Begin Time: 4.32499 s
+Segment End Time: 4.42499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 44
+Segment Type: 0 LINEAR
+Segment Begin Time: 4.42499 s
+Segment End Time: 4.52499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 45
+Segment Type: 0 LINEAR
+Segment Begin Time: 4.52499 s
+Segment End Time: 4.62499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 46
+Segment Type: 0 LINEAR
+Segment Begin Time: 4.62499 s
+Segment End Time: 4.72499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 47
+Segment Type: 0 LINEAR
+Segment Begin Time: 4.72499 s
+Segment End Time: 4.82499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 48
+Segment Type: 0 LINEAR
+Segment Begin Time: 4.82499 s
+Segment End Time: 4.92499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 49
+Segment Type: 0 LINEAR
+Segment Begin Time: 4.92499 s
+Segment End Time: 5.02499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 50
+Segment Type: 0 LINEAR
+Segment Begin Time: 5.02499 s
+Segment End Time: 5.12499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 51
+Segment Type: 0 LINEAR
+Segment Begin Time: 5.12499 s
+Segment End Time: 5.22499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 52
+Segment Type: 0 LINEAR
+Segment Begin Time: 5.22499 s
+Segment End Time: 5.32499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 53
+Segment Type: 0 LINEAR
+Segment Begin Time: 5.32499 s
+Segment End Time: 5.42499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 54
+Segment Type: 0 LINEAR
+Segment Begin Time: 5.42499 s
+Segment End Time: 5.52499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 55
+Segment Type: 0 LINEAR
+Segment Begin Time: 5.52499 s
+Segment End Time: 5.62499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 56
+Segment Type: 0 LINEAR
+Segment Begin Time: 5.62499 s
+Segment End Time: 5.72499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 57
+Segment Type: 0 LINEAR
+Segment Begin Time: 5.72499 s
+Segment End Time: 5.82499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 58
+Segment Type: 0 LINEAR
+Segment Begin Time: 5.82499 s
+Segment End Time: 5.92499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 59
+Segment Type: 0 LINEAR
+Segment Begin Time: 5.92499 s
+Segment End Time: 6.02499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 60
+Segment Type: 0 LINEAR
+Segment Begin Time: 6.02499 s
+Segment End Time: 6.12499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 61
+Segment Type: 0 LINEAR
+Segment Begin Time: 6.12499 s
+Segment End Time: 6.22499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 62
+Segment Type: 0 LINEAR
+Segment Begin Time: 6.22499 s
+Segment End Time: 6.32499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 63
+Segment Type: 0 LINEAR
+Segment Begin Time: 6.32499 s
+Segment End Time: 6.42499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 64
+Segment Type: 0 LINEAR
+Segment Begin Time: 6.42499 s
+Segment End Time: 6.52499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 65
+Segment Type: 0 LINEAR
+Segment Begin Time: 6.52499 s
+Segment End Time: 6.62499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 66
+Segment Type: 0 LINEAR
+Segment Begin Time: 6.62499 s
+Segment End Time: 6.72499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 67
+Segment Type: 0 LINEAR
+Segment Begin Time: 6.72499 s
+Segment End Time: 6.82499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 68
+Segment Type: 0 LINEAR
+Segment Begin Time: 6.82499 s
+Segment End Time: 6.92499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 69
+Segment Type: 0 LINEAR
+Segment Begin Time: 6.92499 s
+Segment End Time: 7.02499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 70
+Segment Type: 0 LINEAR
+Segment Begin Time: 7.02499 s
+Segment End Time: 7.12499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 71
+Segment Type: 0 LINEAR
+Segment Begin Time: 7.12499 s
+Segment End Time: 7.22499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 72
+Segment Type: 0 LINEAR
+Segment Begin Time: 7.22499 s
+Segment End Time: 7.32499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 73
+Segment Type: 0 LINEAR
+Segment Begin Time: 7.32499 s
+Segment End Time: 7.42499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 74
+Segment Type: 0 LINEAR
+Segment Begin Time: 7.42499 s
+Segment End Time: 7.52499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 75
+Segment Type: 0 LINEAR
+Segment Begin Time: 7.52499 s
+Segment End Time: 7.62499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 76
+Segment Type: 0 LINEAR
+Segment Begin Time: 7.62499 s
+Segment End Time: 7.72499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 77
+Segment Type: 0 LINEAR
+Segment Begin Time: 7.72499 s
+Segment End Time: 7.82499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 78
+Segment Type: 0 LINEAR
+Segment Begin Time: 7.82499 s
+Segment End Time: 7.92499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 79
+Segment Type: 0 LINEAR
+Segment Begin Time: 7.92499 s
+Segment End Time: 8.02499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 80
+Segment Type: 0 LINEAR
+Segment Begin Time: 8.02499 s
+Segment End Time: 8.12499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 81
+Segment Type: 0 LINEAR
+Segment Begin Time: 8.12499 s
+Segment End Time: 8.22499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 82
+Segment Type: 0 LINEAR
+Segment Begin Time: 8.22499 s
+Segment End Time: 8.32499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 83
+Segment Type: 0 LINEAR
+Segment Begin Time: 8.32499 s
+Segment End Time: 8.42499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 84
+Segment Type: 0 LINEAR
+Segment Begin Time: 8.42499 s
+Segment End Time: 8.52499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 85
+Segment Type: 0 LINEAR
+Segment Begin Time: 8.52499 s
+Segment End Time: 8.62499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 86
+Segment Type: 0 LINEAR
+Segment Begin Time: 8.62499 s
+Segment End Time: 8.72499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 87
+Segment Type: 0 LINEAR
+Segment Begin Time: 8.72499 s
+Segment End Time: 8.82499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 88
+Segment Type: 0 LINEAR
+Segment Begin Time: 8.82499 s
+Segment End Time: 8.92499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 89
+Segment Type: 0 LINEAR
+Segment Begin Time: 8.92499 s
+Segment End Time: 9.02499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 90
+Segment Type: 0 LINEAR
+Segment Begin Time: 9.02499 s
+Segment End Time: 9.12499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 91
+Segment Type: 0 LINEAR
+Segment Begin Time: 9.12499 s
+Segment End Time: 9.22499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 92
+Segment Type: 0 LINEAR
+Segment Begin Time: 9.22499 s
+Segment End Time: 9.32499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 93
+Segment Type: 0 LINEAR
+Segment Begin Time: 9.32499 s
+Segment End Time: 9.42499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 94
+Segment Type: 0 LINEAR
+Segment Begin Time: 9.42499 s
+Segment End Time: 9.52499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 95
+Segment Type: 0 LINEAR
+Segment Begin Time: 9.52499 s
+Segment End Time: 9.62499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 96
+Segment Type: 0 LINEAR
+Segment Begin Time: 9.62499 s
+Segment End Time: 9.72499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 97
+Segment Type: 0 LINEAR
+Segment Begin Time: 9.72499 s
+Segment End Time: 9.82499 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 98
+Segment Type: 0 LINEAR
+Segment Begin Time: 9.82499 s
+Segment End Time: 9.92499 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 99
+Segment Type: 0 LINEAR
+Segment Begin Time: 9.92499 s
+Segment End Time: 10.025 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 100
+Segment Type: 0 LINEAR
+Segment Begin Time: 10.025 s
+Segment End Time: 10.125 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 101
+Segment Type: 0 LINEAR
+Segment Begin Time: 10.125 s
+Segment End Time: 10.225 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 102
+Segment Type: 0 LINEAR
+Segment Begin Time: 10.225 s
+Segment End Time: 10.325 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 103
+Segment Type: 0 LINEAR
+Segment Begin Time: 10.325 s
+Segment End Time: 10.425 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 104
+Segment Type: 0 LINEAR
+Segment Begin Time: 10.425 s
+Segment End Time: 10.525 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 105
+Segment Type: 0 LINEAR
+Segment Begin Time: 10.525 s
+Segment End Time: 10.625 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 106
+Segment Type: 0 LINEAR
+Segment Begin Time: 10.625 s
+Segment End Time: 10.725 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 107
+Segment Type: 0 LINEAR
+Segment Begin Time: 10.725 s
+Segment End Time: 10.825 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 108
+Segment Type: 0 LINEAR
+Segment Begin Time: 10.825 s
+Segment End Time: 10.925 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 109
+Segment Type: 0 LINEAR
+Segment Begin Time: 10.925 s
+Segment End Time: 11.025 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 110
+Segment Type: 0 LINEAR
+Segment Begin Time: 11.025 s
+Segment End Time: 11.125 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 111
+Segment Type: 0 LINEAR
+Segment Begin Time: 11.125 s
+Segment End Time: 11.225 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 112
+Segment Type: 0 LINEAR
+Segment Begin Time: 11.225 s
+Segment End Time: 11.325 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 113
+Segment Type: 0 LINEAR
+Segment Begin Time: 11.325 s
+Segment End Time: 11.425 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 114
+Segment Type: 0 LINEAR
+Segment Begin Time: 11.425 s
+Segment End Time: 11.525 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 115
+Segment Type: 0 LINEAR
+Segment Begin Time: 11.525 s
+Segment End Time: 11.625 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 116
+Segment Type: 0 LINEAR
+Segment Begin Time: 11.625 s
+Segment End Time: 11.725 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 117
+Segment Type: 0 LINEAR
+Segment Begin Time: 11.725 s
+Segment End Time: 11.825 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 200 µN
+Segment Number: 118
+Segment Type: 0 LINEAR
+Segment Begin Time: 11.825 s
+Segment End Time: 11.925 s
+Segment Begin Demand: 200 µN
+Segment End Demand: 1000 µN
+Segment Number: 119
+Segment Type: 0 LINEAR
+Segment Begin Time: 11.925 s
+Segment End Time: 12.05 s
+Segment Begin Demand: 1000 µN
+Segment End Demand: 0 µN
+Machine Compliance: 3.7 nm/mN
+Preload Feedback Gain: 0.2
+Lift Feedback Gain: 0.01
+Adaptive Feedback Gain: 0
+Proportional Feedback Gain: 0
+Integral Feedback Gain: 0.2
+Derivative Feedback Gain: 0
+Preload Feedback Gain Scalar: 1
+Lift Feedback Gain Scalar: 1
+Proportional Feedback Gain Scalar: 1
+Integral Feedback Gain Scalar: 1
+Derivative Feedback Gain Scalar: 1
+Open Loop Term: ON
+Sig Avg Per Point: 13.8923
+Data Points: 825
+Time_s	Disp_nm	Force_µN
+-1.668	-7.277	-0.642
+-1.651	-7.962	-0.638
+-1.635	-8.021	-0.529
+-1.619	-7.528	-0.594
+-1.601	-7.485	-0.560
+-1.585	-7.094	-0.626
+-1.569	-7.166	-0.583
+-1.552	-7.011	-0.617
+-1.521	-6.939	-0.618
+-1.519	-6.779	-0.615
+-1.502	-6.856	-0.600
+-1.485	-6.478	-0.665
+-1.469	-6.662	-0.657
+-1.452	-6.747	-0.591
+-1.435	-6.472	-0.618
+-1.417	-6.332	-0.646
+-1.401	-6.395	-0.612
+-1.385	-6.234	-0.630
+-1.368	-6.098	-0.644
+-1.352	-6.143	-0.625
+-1.335	-5.980	-0.621
+-1.317	-5.772	-0.640
+-1.301	-5.535	-0.707
+-1.285	-5.840	-0.671
+-1.268	-5.641	-0.685
+-1.252	-5.369	-0.722
+-1.235	-5.442	-0.705
+-1.217	-5.395	-0.686
+-1.201	-5.399	-0.673
+-1.185	-5.311	-0.680
+-1.168	-5.069	-0.700
+-1.151	-4.987	-0.707
+-1.135	-5.047	-0.689
+-1.118	-5.017	-0.658
+-1.101	-4.604	-0.766
+-1.084	-4.881	-0.710
+-1.068	-4.646	-0.718
+-1.051	-4.461	-0.722
+-1.035	-4.371	-0.714
+-1.018	-4.274	-0.764
+-1.001	-4.145	-0.796
+-0.985	-4.500	-0.722
+-0.967	-3.972	-0.766
+-0.951	-3.992	-0.752
+-0.934	-4.024	-0.727
+-0.918	-4.147	-0.710
+-0.901	-4.168	-0.643
+-0.884	-3.733	-0.671
+-0.868	-3.577	-0.688
+-0.850	-3.569	-0.672
+-0.834	-3.400	-0.696
+-0.818	-3.607	-0.660
+-0.801	-3.061	-0.715
+-0.783	-3.287	-0.720
+-0.767	-3.294	-0.644
+-0.751	-3.181	-0.652
+-0.734	-3.144	-0.621
+-0.717	-3.085	-0.589
+-0.700	-2.843	-0.598
+-0.684	-2.817	-0.581
+-0.667	-2.753	-0.565
+-0.651	-2.628	-0.600
+-0.634	-2.618	-0.546
+-0.617	-2.559	-0.511
+-0.601	-2.536	-0.487
+-0.584	-2.288	-0.514
+-0.567	-2.370	-0.467
+-0.551	-2.247	-0.450
+-0.534	-2.298	-0.371
+-0.517	-2.285	-0.295
+-0.501	-2.209	-0.272
+-0.484	-2.372	-0.150
+-0.467	-2.165	-0.104
+-0.449	-2.094	-0.015
+-0.433	-1.817	0.029
+-0.417	-1.827	0.073
+-0.400	-1.918	0.171
+-0.384	-1.528	0.176
+-0.367	-1.583	0.262
+-0.350	-1.559	0.359
+-0.334	-1.388	0.406
+-0.316	-1.281	0.453
+-0.300	-1.298	0.490
+-0.284	-1.050	0.502
+-0.267	-1.070	0.597
+-0.249	-1.262	0.724
+-0.233	-1.069	0.808
+-0.217	-0.920	0.852
+-0.200	-0.801	0.914
+-0.183	-0.799	1.020
+-0.167	-0.718	1.093
+-0.149	-0.442	1.140
+-0.133	-0.690	1.276
+-0.117	-0.455	1.305
+-0.100	-0.402	1.401
+-0.083	-0.514	1.527
+-0.067	-0.339	1.628
+-0.049	-0.385	1.765
+-0.033	-0.175	1.816
+-0.017	-0.149	1.913
+0.000	0.000	2.003
+0.019	59.712	140.288
+0.034	92.229	218.705
+0.051	135.378	344.922
+0.067	172.381	475.907
+0.084	203.867	605.691
+0.101	232.970	744.778
+0.117	258.432	878.701
+0.134	280.045	986.594
+0.143	268.103	834.661
+0.159	262.323	776.433
+0.176	246.583	652.918
+0.192	226.886	523.516
+0.210	203.546	390.051
+0.226	174.434	251.765
+0.243	180.004	344.383
+0.259	192.592	413.626
+0.276	214.958	542.271
+0.292	236.851	677.290
+0.309	258.091	810.344
+0.326	278.661	942.870
+0.344	277.299	856.009
+0.359	268.771	781.279
+0.376	251.966	652.131
+0.392	232.424	522.150
+0.409	210.582	393.856
+0.427	182.346	255.252
+0.443	188.162	344.601
+0.459	199.603	415.191
+0.476	221.112	545.297
+0.493	242.170	678.251
+0.509	262.632	812.209
+0.526	282.234	944.759
+0.544	280.353	856.464
+0.559	271.630	781.466
+0.576	255.063	653.328
+0.592	235.991	523.415
+0.610	213.759	390.530
+0.626	186.116	251.631
+0.643	191.856	344.574
+0.659	202.768	412.483
+0.676	223.860	542.361
+0.692	245.006	676.179
+0.709	265.025	809.908
+0.726	284.317	943.017
+0.744	282.136	855.852
+0.759	273.350	781.224
+0.776	256.757	652.103
+0.792	238.021	522.177
+0.809	216.637	393.841
+0.827	189.649	255.127
+0.843	195.073	344.213
+0.859	206.181	415.271
+0.876	226.898	544.087
+0.893	247.518	678.466
+0.909	267.172	812.303
+0.926	286.168	945.408
+0.943	284.400	854.521
+0.960	275.256	784.031
+0.976	258.282	650.364
+0.992	239.672	520.887
+1.009	218.265	392.035
+1.027	191.729	254.686
+1.043	197.649	344.596
+1.059	208.428	415.277
+1.076	228.699	544.749
+1.093	249.208	678.427
+1.109	268.256	812.892
+1.126	287.343	946.045
+1.143	286.021	854.575
+1.159	277.308	786.834
+1.177	260.076	654.086
+1.192	240.581	517.746
+1.209	219.576	389.653
+1.226	193.869	255.576
+1.244	198.602	352.855
+1.260	210.697	419.289
+1.276	230.809	548.188
+1.292	250.354	677.780
+1.309	268.910	806.410
+1.326	288.445	944.269
+1.343	286.522	855.456
+1.359	277.611	781.771
+1.376	261.174	652.670
+1.392	242.622	523.450
+1.410	220.860	390.479
+1.426	194.468	251.554
+1.443	200.253	344.559
+1.459	211.050	413.803
+1.476	231.545	544.157
+1.492	251.543	677.379
+1.509	270.684	811.162
+1.526	289.530	944.871
+1.544	286.901	846.459
+1.560	277.937	780.340
+1.576	261.596	650.388
+1.592	243.198	520.834
+1.609	222.468	392.016
+1.626	197.193	257.904
+1.643	201.718	343.674
+1.659	212.699	416.297
+1.676	232.660	545.337
+1.693	252.873	678.980
+1.709	271.923	812.869
+1.726	290.270	946.032
+1.743	288.651	854.791
+1.759	279.958	788.245
+1.776	263.384	655.048
+1.792	244.378	520.905
+1.809	223.485	392.001
+1.827	197.535	254.148
+1.843	203.336	344.648
+1.859	213.865	416.667
+1.876	233.803	545.262
+1.892	253.350	675.298
+1.909	272.272	808.774
+1.926	291.422	946.632
+1.943	289.316	854.684
+1.960	280.252	783.917
+1.976	263.394	649.872
+1.992	245.123	522.194
+2.009	224.490	392.487
+2.027	198.676	254.589
+2.043	203.841	344.562
+2.059	214.936	415.986
+2.076	234.843	545.321
+2.093	254.838	679.533
+2.109	273.751	813.493
+2.126	291.872	946.109
+2.143	289.978	855.219
+2.159	280.966	785.546
+2.176	264.851	657.344
+2.192	245.956	522.535
+2.209	224.925	389.661
+2.226	200.099	257.423
+2.244	205.304	344.306
+2.259	216.291	418.306
+2.276	235.920	547.730
+2.292	254.821	676.515
+2.310	273.990	809.815
+2.326	293.004	948.952
+2.343	290.323	855.486
+2.359	281.921	786.388
+2.376	265.447	657.370
+2.392	246.632	522.518
+2.409	225.556	389.637
+2.426	200.805	255.523
+2.444	205.616	353.328
+2.460	217.418	419.361
+2.476	236.820	548.797
+2.492	255.726	677.789
+2.509	274.033	807.063
+2.527	292.970	945.382
+2.543	289.712	855.272
+2.559	282.140	784.277
+2.576	265.776	655.692
+2.593	247.130	521.458
+2.609	225.930	387.869
+2.626	201.542	254.278
+2.643	205.832	345.271
+2.659	216.738	411.365
+2.676	236.891	544.718
+2.692	256.508	679.122
+2.709	274.590	808.315
+2.727	293.535	946.313
+2.743	290.218	855.192
+2.759	282.436	784.326
+2.776	266.151	653.793
+2.792	248.005	524.658
+2.809	227.145	391.366
+2.826	201.960	253.213
+2.843	207.615	344.538
+2.859	217.557	412.650
+2.876	237.375	542.431
+2.892	256.990	677.519
+2.909	275.497	810.596
+2.926	293.657	945.012
+2.944	291.393	846.379
+2.960	282.429	780.275
+2.976	266.505	651.497
+2.992	248.735	523.498
+3.009	228.218	393.600
+3.026	202.739	255.623
+3.043	208.282	343.794
+3.059	218.595	414.433
+3.076	238.215	544.191
+3.092	257.710	677.995
+3.109	276.100	811.860
+3.126	294.231	944.828
+3.144	291.738	846.645
+3.159	283.495	783.903
+3.177	267.093	653.923
+3.192	248.435	518.963
+3.209	228.198	390.781
+3.226	203.877	257.378
+3.244	209.266	343.833
+3.259	219.821	418.427
+3.276	238.928	546.500
+3.292	257.848	676.635
+3.310	276.611	809.771
+3.326	295.062	949.045
+3.343	292.210	855.514
+3.359	283.909	785.746
+3.376	268.108	657.403
+3.392	249.282	522.531
+3.409	228.479	389.536
+3.426	204.462	257.412
+3.444	209.451	344.014
+3.459	220.400	418.417
+3.476	239.387	546.519
+3.492	258.390	676.638
+3.510	276.839	809.780
+3.526	295.647	948.979
+3.543	292.715	855.435
+3.559	284.586	785.654
+3.576	268.533	657.354
+3.592	249.723	521.352
+3.609	228.977	388.503
+3.626	204.557	254.294
+3.643	209.154	345.122
+3.659	219.987	411.393
+3.677	239.946	545.224
+3.692	259.325	679.829
+3.709	276.910	808.257
+3.726	295.094	942.513
+3.743	292.582	855.461
+3.759	284.523	783.248
+3.776	268.719	654.375
+3.793	250.025	521.033
+3.809	229.090	386.664
+3.826	205.301	254.372
+3.843	209.341	344.883
+3.859	220.455	411.421
+3.877	240.302	545.236
+3.892	259.889	680.500
+3.909	277.718	809.438
+3.926	295.460	943.112
+3.944	292.927	855.728
+3.959	284.349	781.382
+3.976	268.800	652.100
+3.992	250.860	522.058
+4.009	230.753	393.747
+4.026	205.689	255.547
+4.043	210.965	344.178
+4.059	221.313	415.283
+4.076	240.638	544.094
+4.093	260.016	678.611
+4.109	278.292	812.315
+4.126	296.275	945.516
+4.144	292.986	846.778
+4.159	285.108	782.424
+4.177	269.107	654.073
+4.192	250.911	518.964
+4.209	230.791	390.707
+4.226	206.643	256.794
+4.244	211.632	343.644
+4.259	222.116	417.684
+4.276	241.407	546.501
+4.292	260.047	675.242
+4.309	278.572	809.941
+4.326	296.807	947.275
+4.343	293.781	854.635
+4.359	286.160	786.954
+4.377	269.463	654.075
+4.392	250.807	517.686
+4.409	230.811	389.584
+4.426	206.964	257.435
+4.444	211.974	344.428
+4.459	222.876	418.424
+4.476	241.990	547.017
+4.492	260.486	676.674
+4.510	279.012	810.312
+4.526	297.203	949.102
+4.543	294.124	855.222
+4.559	286.167	785.603
+4.576	270.398	657.400
+4.592	251.959	522.529
+4.609	231.441	389.608
+4.626	207.134	255.477
+4.644	212.288	353.040
+4.660	223.696	419.392
+4.676	242.491	548.232
+4.692	261.438	681.845
+4.709	279.194	811.890
+4.726	297.097	944.847
+4.744	294.182	846.911
+4.760	285.858	780.259
+4.776	269.744	650.414
+4.792	252.112	520.792
+4.809	232.085	391.890
+4.826	208.257	257.798
+4.843	212.348	343.950
+4.859	223.452	416.399
+4.876	242.300	545.306
+4.892	260.826	675.343
+4.910	279.262	808.828
+4.926	297.748	948.559
+4.943	294.816	855.116
+4.959	286.742	787.040
+4.977	270.151	653.480
+4.992	251.974	519.051
+5.009	232.128	390.697
+5.026	208.263	257.274
+5.044	213.332	343.780
+5.059	224.182	418.401
+5.076	243.154	546.547
+5.092	261.614	675.128
+5.110	279.911	810.044
+5.126	298.288	948.380
+5.143	295.162	855.063
+5.159	286.960	784.974
+5.176	270.899	654.252
+5.193	252.537	520.420
+5.209	232.181	386.664
+5.226	208.257	253.784
+5.243	212.237	345.241
+5.259	223.337	412.077
+5.277	243.154	545.819
+5.292	262.342	681.047
+5.309	279.875	809.505
+5.326	297.425	942.504
+5.343	294.707	855.784
+5.359	286.701	782.594
+5.376	270.873	653.184
+5.392	253.330	524.773
+5.409	233.199	391.312
+5.426	208.616	253.209
+5.443	213.223	344.649
+5.459	223.487	412.005
+5.477	243.351	545.838
+5.492	262.558	679.736
+5.509	280.382	808.827
+5.526	297.850	942.674
+5.543	295.053	855.730
+5.559	287.010	782.573
+5.576	271.040	652.117
+5.592	253.536	522.790
+5.609	233.586	393.628
+5.626	208.891	254.978
+5.643	213.730	343.933
+5.659	224.470	415.181
+5.676	243.607	544.148
+5.693	262.724	678.595
+5.709	280.669	812.373
+5.726	298.198	944.927
+5.744	295.273	846.751
+5.760	287.058	780.269
+5.776	271.199	650.329
+5.792	253.712	522.093
+5.809	233.831	393.156
+5.826	209.215	255.023
+5.843	214.394	344.029
+5.859	225.110	415.248
+5.876	244.395	544.734
+5.893	263.286	678.508
+5.909	281.331	812.968
+5.926	298.755	946.189
+5.943	295.747	854.983
+5.959	288.139	786.944
+5.977	271.877	654.040
+5.992	253.620	517.682
+6.009	233.586	389.613
+6.026	209.933	257.368
+6.044	215.219	343.887
+6.059	225.959	418.392
+6.076	244.800	547.085
+6.092	263.066	676.711
+6.110	281.465	810.895
+6.126	299.478	949.025
+6.143	296.091	855.251
+6.159	287.785	783.681
+6.176	272.091	654.412
+6.193	254.010	521.538
+6.209	233.601	386.597
+6.226	210.130	254.358
+6.243	213.806	344.985
+6.259	224.895	411.420
+6.277	244.605	545.929
+6.292	263.781	679.675
+6.309	281.088	807.036
+6.326	299.113	944.349
+6.343	295.638	855.651
+6.359	287.865	785.808
+6.376	272.300	657.336
+6.392	254.219	521.322
+6.409	234.111	388.355
+6.426	210.394	254.883
+6.444	215.557	353.138
+6.460	226.205	419.430
+6.476	245.334	549.461
+6.492	263.961	677.755
+6.509	281.442	807.715
+6.527	299.136	945.416
+6.543	295.827	854.983
+6.559	288.548	784.214
+6.576	272.857	655.620
+6.593	254.633	521.366
+6.609	233.968	387.898
+6.626	210.480	254.285
+6.643	214.657	345.053
+6.660	226.403	415.176
+6.676	246.131	550.608
+6.692	263.652	679.120
+6.709	281.259	808.928
+6.726	298.819	942.566
+6.743	296.331	855.224
+6.759	288.664	783.255
+6.776	272.708	653.788
+6.793	254.283	521.599
+6.809	234.064	387.871
+6.826	210.894	254.261
+6.843	215.162	344.968
+6.860	226.703	415.108
+6.876	245.877	549.466
+6.892	263.938	678.510
+6.909	281.470	808.365
+6.927	299.878	945.890
+6.943	296.517	855.198
+6.959	288.679	783.087
+6.976	272.703	653.227
+6.992	255.065	524.624
+7.009	235.009	390.811
+7.026	210.936	253.181
+7.043	216.147	344.586
+7.059	226.493	412.742
+7.077	245.924	545.809
+7.092	264.434	681.106
+7.109	281.835	809.439
+7.126	299.451	943.024
+7.144	296.861	855.786
+7.160	288.445	780.746
+7.177	272.301	649.094
+7.192	254.953	518.932
+7.209	235.450	390.712
+7.226	212.155	257.246
+7.244	216.972	344.233
+7.259	227.495	417.711
+7.276	246.100	546.656
+7.292	264.330	676.633
+7.310	282.416	809.780
+7.326	300.651	949.076
+7.343	296.569	855.518
+7.359	289.370	786.290
+7.376	273.675	657.323
+7.392	256.086	523.621
+7.409	235.686	389.547
+7.426	212.272	257.398
+7.444	217.159	343.995
+7.459	227.875	418.435
+7.476	246.681	547.788
+7.492	264.847	676.552
+7.510	282.823	810.386
+7.526	300.484	949.135
+7.543	296.596	855.518
+7.559	289.581	786.352
+7.577	273.506	653.472
+7.592	255.533	519.016
+7.609	235.788	390.742
+7.626	212.242	257.340
+7.644	217.343	344.387
+7.659	228.306	418.367
+7.676	246.917	546.579
+7.692	264.971	676.729
+7.710	282.731	810.906
+7.726	300.898	948.971
+7.743	297.740	855.012
+7.759	290.297	785.598
+7.776	274.299	656.859
+7.792	255.882	522.534
+7.809	235.740	389.503
+7.826	212.629	255.331
+7.844	218.614	353.052
+7.859	228.626	418.839
+7.876	247.087	547.763
+7.892	264.827	676.564
+7.910	283.257	810.925
+7.926	301.187	949.004
+7.943	297.764	855.974
+7.959	290.120	784.361
+7.976	274.256	654.386
+7.992	256.633	524.644
+8.009	236.492	390.745
+8.026	212.519	253.340
+8.043	218.035	344.273
+8.059	228.355	416.446
+8.076	247.248	545.424
+8.093	265.693	679.600
+8.109	283.492	812.924
+8.126	300.659	944.979
+8.144	297.665	846.725
+8.159	290.153	783.872
+8.177	274.488	653.901
+8.192	256.175	519.627
+8.209	236.836	390.695
+8.226	213.277	257.886
+8.243	217.585	343.727
+8.259	228.676	416.398
+8.276	247.657	546.599
+8.292	265.596	675.246
+8.310	283.484	810.036
+8.326	301.142	947.796
+8.343	298.779	854.532
+8.360	290.385	784.465
+8.376	274.258	649.783
+8.392	257.056	520.836
+8.409	237.041	391.937
+8.426	213.657	257.789
+8.443	218.249	343.824
+8.459	228.972	416.469
+8.476	247.518	545.370
+8.492	265.757	675.397
+8.509	283.461	808.912
+8.526	301.376	947.260
+8.543	298.484	855.226
+8.559	290.786	788.217
+8.577	274.604	654.023
+8.592	256.707	519.579
+8.609	237.220	390.702
+8.626	213.970	257.264
+8.644	218.595	343.767
+8.659	229.242	417.012
+8.676	247.756	546.663
+8.692	266.101	675.919
+8.710	283.707	809.924
+8.726	301.751	948.434
+8.743	298.351	855.253
+8.759	290.798	785.605
+8.776	275.228	657.417
+8.792	257.314	522.452
+8.809	237.130	388.336
+8.826	213.707	255.465
+8.844	218.906	353.236
+8.860	229.775	419.385
+8.876	248.435	548.886
+8.892	266.317	677.870
+8.909	283.702	806.565
+8.927	301.358	945.441
+8.943	297.103	855.145
+8.959	290.695	784.118
+8.976	275.179	656.297
+8.992	257.440	523.063
+9.009	237.368	389.561
+9.026	213.939	255.398
+9.044	218.135	353.378
+9.060	229.912	419.381
+9.076	248.678	548.868
+9.092	266.306	677.986
+9.109	283.873	807.654
+9.127	301.512	945.510
+9.143	298.088	854.665
+9.159	290.545	782.239
+9.176	274.903	652.020
+9.192	257.428	522.091
+9.209	238.177	393.662
+9.226	213.971	255.493
+9.243	219.470	344.256
+9.259	229.341	415.261
+9.276	248.300	544.209
+9.292	266.827	677.998
+9.309	284.738	811.843
+9.326	301.582	944.974
+9.344	298.782	846.565
+9.359	291.044	783.773
+9.376	275.631	655.101
+9.392	257.594	520.807
+9.409	238.131	391.860
+9.427	214.266	255.076
+9.443	219.175	345.156
+9.459	229.882	415.379
+9.476	248.482	545.521
+9.493	267.216	678.433
+9.509	285.180	813.618
+9.526	302.014	946.096
+9.543	299.734	855.041
+9.559	291.852	788.171
+9.576	275.775	655.074
+9.592	257.562	520.146
+9.609	238.321	390.672
+9.626	215.035	257.821
+9.644	219.683	344.228
+9.659	230.535	418.430
+9.676	248.994	546.562
+9.692	266.771	676.624
+9.710	284.883	809.855
+9.726	302.431	948.462
+9.743	298.963	855.173
+9.759	291.458	785.755
+9.776	276.001	656.797
+9.792	258.312	522.428
+9.809	238.329	389.555
+9.826	214.911	255.374
+9.844	220.634	352.952
+9.859	230.695	418.861
+9.876	249.415	547.682
+9.892	267.151	677.267
+9.909	284.610	806.658
+9.926	302.176	944.372
+9.943	298.991	854.853
+9.959	291.682	785.648
+9.976	276.101	655.482
+9.993	258.081	521.443
+10.009	237.854	386.640
+10.026	214.942	254.258
+10.043	220.054	344.592
+10.059	229.947	412.764
+10.077	249.522	546.247
+10.092	267.777	681.065
+10.109	284.910	809.616
+10.126	302.106	943.028
+10.143	298.854	855.841
+10.160	291.210	781.171
+10.176	275.349	650.343
+10.192	258.272	522.121
+10.209	238.905	393.064
+10.227	214.957	254.947
+10.243	220.718	344.689
+10.259	230.724	415.422
+10.276	249.146	545.569
+10.293	267.665	678.475
+10.309	285.412	813.621
+10.326	302.474	945.990
+10.343	300.003	854.373
+10.359	292.093	788.247
+10.376	276.296	655.024
+10.392	258.235	519.502
+10.409	238.849	390.691
+10.426	215.725	257.252
+10.444	220.907	344.028
+10.459	231.196	417.802
+10.476	249.727	546.618
+10.492	267.724	676.656
+10.510	285.521	809.832
+10.526	303.130	948.461
+10.543	300.186	854.987
+10.559	292.201	786.315
+10.576	276.710	657.283
+10.592	259.055	522.991
+10.609	239.176	389.535
+10.626	215.969	256.763
+10.644	220.738	353.804
+10.659	231.623	418.881
+10.676	250.068	547.753
+10.692	267.885	676.698
+10.709	285.183	806.622
+10.726	302.686	944.370
+10.743	300.213	854.987
+10.759	292.414	785.566
+10.776	276.508	654.364
+10.793	258.757	521.505
+10.809	238.838	386.576
+10.826	215.686	254.315
+10.843	219.680	345.310
+10.859	230.832	411.335
+10.876	249.941	544.914
+10.892	268.021	677.120
+10.909	285.164	806.650
+10.926	302.894	944.316
+10.943	299.601	855.094
+10.959	292.391	785.762
+10.976	276.883	655.492
+10.992	259.109	522.593
+11.009	239.063	388.327
+11.026	215.973	254.810
+11.043	220.185	345.224
+11.059	231.068	410.846
+11.077	250.209	545.949
+11.092	268.455	679.716
+11.109	285.672	808.956
+11.126	302.594	942.568
+11.143	298.988	855.841
+11.159	292.125	781.935
+11.176	276.380	650.880
+11.192	259.056	522.087
+11.209	239.703	391.827
+11.227	215.983	255.017
+11.243	221.330	344.603
+11.259	231.674	416.703
+11.276	250.202	545.433
+11.292	267.958	675.420
+11.309	285.641	808.859
+11.326	303.218	947.350
+11.343	300.293	854.987
+11.359	292.270	782.963
+11.376	277.214	654.397
+11.393	259.155	521.524
+11.409	239.134	386.621
+11.426	216.358	254.310
+11.443	221.037	344.660
+11.459	231.242	411.431
+11.476	250.455	545.389
+11.492	268.571	679.209
+11.509	285.783	808.878
+11.526	302.931	942.665
+11.543	300.477	855.602
+11.559	292.554	783.155
+11.576	276.862	652.018
+11.592	259.582	523.428
+11.609	240.251	393.590
+11.626	216.777	255.993
+11.643	221.543	344.575
+11.659	231.664	413.980
+11.676	250.237	544.312
+11.692	268.868	677.454
+11.709	286.233	811.191
+11.726	303.371	944.995
+11.744	300.538	846.326
+11.759	292.454	780.998
+11.776	277.197	651.967
+11.792	259.992	522.709
+11.809	240.744	393.627
+11.827	216.744	254.938
+11.843	222.206	344.883
+11.859	231.992	415.518
+11.876	250.617	544.163
+11.892	269.155	678.073
+11.909	286.645	811.762
+11.926	303.249	944.999
+11.943	301.332	854.187
+11.960	293.026	785.088
+11.976	276.959	649.627
+11.992	259.694	520.812
+12.009	240.256	391.189
+12.026	217.473	257.720
+12.042	188.643	124.305
+12.059	142.883	14.110

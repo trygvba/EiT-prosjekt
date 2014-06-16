@@ -1,8 +1,8 @@
-R=1;
-p = 5;
+R=2;
+p = 0.667;
 Rs = (1+p/100)*R;
 
-lc1=0.18;
+lc1=0.4;
 // Inner sphere:
 //Points:
 Point(1) = {0, 0, 0, lc1};
@@ -48,8 +48,8 @@ Ruled Surface(28) = {27};
 Surface Loop(29) = {22, 20, 18, 16, 14, 24, 26, 28};
 Volume(30) = {29};
 
-//Outer Sphere:
-lc2=lc1;
+//Outer Shell:
+lc2=0.2;
 //Points:
 Point(31) = {Rs, 0, 0, lc2};
 Point(32) = {-Rs, 0, 0, lc2};

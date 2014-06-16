@@ -21,8 +21,8 @@ rhos = 10^4;
 
 [p tri tetr] = loadGeo('spherewshell');
 
-[A M] = MassAndStiffnessMatrix3D(tetr,p,Cp,Cs,rhop,rhos);
-%[A M] = HomogenousMaterial(tetr(:,1:4),p,Cp);
+%[A M] = MassAndStiffnessMatrix3D(tetr,p,Cp,Cs,rhop,rhos);
+[A M] = HomogenousMaterial(tetr(:,1:4),p,Cp, rhop);
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -33,13 +33,15 @@ n = 8;
 %omega = eigenvalues(n);
 u = V(:,n);
 
-alpha=5;
+alpha=0.5;
 
 
 %Newmark 2beta method
-steps=500;     %Number of time increments.
+dt=10^-9;
+t_span=3*10^-8;
+steps=100;     %Number of time increments.
 sz=size(u,1);
-dt=0.00001;      %Temporal step spacing.
+              %Temporal step spacing.
 U=zeros(sz,steps);
 beta=0.25;
 NumberOfPics = 100; %BEWARE OF NUMBER OF VTK-FILES.
@@ -58,10 +60,10 @@ title = 'testing';
 
 %Dirichlet boundary conditions
 
-D=0.1; %amplitude of displacement
-omega=2*pi; %frequency of displacement
+D=0.01; %amplitude of displacement
+omega=2*pi/10; %frequency of displacement
 
-dp =@(D,t,omega)  1.20- D*cos(omega*t);
+dp =@(D,t,omega)  1.02- D*cos(omega*t);
 
 
 
@@ -75,17 +77,9 @@ for i = 1:(steps-1)
     end
     U(:,i+1)=K2*(U(:,i) + dt*v + ((1- 2*beta)/2)*dt^2*K1*U(:,i));
     v=v + (dt/2)*K1*(U(:,i) +U(:,i+1));
+    x=i/steps;
+    waitbar(x)
 end
-
-%ODE45 versucht:
-% sz =size(u,1);
-% K1 = M\A;
-% F = @(t,u) [zeros(sz) K1; eye(sz) zeros(sz)]*u;
-% u0 =[zeros(sz,1); alpha*u];
-% tspan = [linspace(0,1,100)];
-% [TOUT YOUT] = ode45(F,tspan,u0);
-% U = YOUT(:,(sz+1):end)';
-
 
 
 
