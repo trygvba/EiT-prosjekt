@@ -6,8 +6,8 @@ for i=1:length(phys_groups)
     Np(i) = sum(tet(:,5)==phys_groups(i));
 end
 Np = [0,Np];
-A = zeros(3*dim,3*dim);
-M = zeros(3*dim,3*dim);
+A = sparse(3*dim,3*dim);
+M = sparse(3*dim,3*dim);
 
 Mp = 1/120*[2 1 1 1; 1 2 1 1; 1 1 2 1; 1 1 1 2];
 I = eye(4);
@@ -64,6 +64,5 @@ for j=1:length(phys_groups)
     end
 end
 %close(h)
-A = sparse(A);
-M = sparse(M);
+
 end

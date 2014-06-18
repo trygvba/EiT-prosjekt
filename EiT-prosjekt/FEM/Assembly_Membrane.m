@@ -46,13 +46,8 @@ v=zeros(szU-length(upperNodes)-length(lowerNodes)-length(x_plates)-length(y_plat
 [Amod Mmod Fmat_up Fmat_low F_acc] = modifiedMatricesV3(A,M,upperNodes,lowerNodes, x_plates, y_plates);
 K1 = Mmod\Amod;
 I = eye(size(Amod,1));
-K2 = (I+0.25*dt^2*K1)\I;
+K2 = (I+(0.25*dt^2)*K1)\I;
 Mmod_inv = Mmod\I;
 
-%Utemp_last = v;
-F_last = -Fmat_up*uz_up-Fmat_low*uz_low;
-Utemp_last = Amod\F_last;
-u0 = putDirichletBackV2(Utemp_last,lowerNodes,upperNodes,uz_low,uz_up,x_plates,y_plates);
-U = u0;
 disp('Assembly done')
 end
