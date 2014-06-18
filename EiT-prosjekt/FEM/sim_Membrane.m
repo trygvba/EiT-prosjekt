@@ -6,21 +6,28 @@ addpath(genpath('../Converters'));
 %Declaration of parameters:
 %Polymer:
 X = 1;%15*10^(-6); %Length scale.
-Ep = 10^(0);%10^9*X;
-vp = 0.46;
-rhop = 10^(0);%X^(3)*950;
-Meshname = 'QMembrane';
+Phys_groups = [70,71,72, 133, 134];
+E = [1,1,1,1,1];%10^9*X;
+v = [0.1,0.1,0.1,0.1,0.1];
+rho = [1,1,1,100,1];%X^(3)*950;
+
+Meshname = 'Membranewsphere';
 
 harmonicMode = 10; % Harmonic mode (2n+1)
 ispulse = 1;
-vtktitle = [Meshname '_' int2str(harmonicMode)];
+
+%Parameters for Paraview printing:
+ExtraNameNote = '';
+
+modestring = sprintf('%d',harmonicMode);
+vtktitle = [Meshname '_' modestring(1:(min(3,length(modestring)))) ExtraNameNote];
 if ispulse
     vtktitle = [vtktitle 'p'];
 end
 vtktitle
-%Parameters for Paraview printing:
+
 output_folder = 'paraview/animation/Membrane';
-steps=100;        % Number of time steps.
+steps=400;        % Number of time steps.
 NumberOfPics = steps;
 granularity = 0.15;
 OLT = 0.05;
@@ -31,7 +38,7 @@ MarkerNode = 779;
 %Parameters for time integration:
 T0=0;                       %start time.
 %szU=size(A,1);              %dimension of our system.
-[p, tri, tetr, szU, K1, K2, Amod, Mmod_inv, v,Fmat_up, Fmat_low, F_acc, lowerNodes, uz_low,upperNodes, uz_up, omega, dt, x_plates, y_plates] = Assembly_verification(Meshname,Ep,vp, rhop, harmonicMode, granularity);
+[p, tri, tetr, szU, K1, K2, Amod, Mmod_inv, v,Fmat_up, Fmat_low, F_acc, lowerNodes, uz_low,upperNodes, uz_up, omega, dt, x_plates, y_plates] = Assembly_Membrane(Meshname,Phys_groups, E,v,rho, harmonicMode, granularity);
 plateDisp = @(t) -OLT*sin(omega*t).*(ispulse*t<(2*pi/omega));
 plateAcc = @(t) OLT*omega^2*sin(omega*t);
 wvel = omega/(harmonicMode*pi/4);
