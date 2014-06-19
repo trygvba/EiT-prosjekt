@@ -87,7 +87,7 @@ R=0.9;
 p = 0.1;
 Rs = (1+p)*R;
 
-lc1=0.2;
+lc1=0.25;
 // Inner sphere:
 //Points:
 Point(73) = {0, 0, 0, lc1};
@@ -134,7 +134,7 @@ Surface Loop(101) = {94, 92, 90, 88, 86, 96, 98, 100};
 Volume(102) = {101};
 
 //Outer Shell:
-lc2=0.15;
+lc2=0.2;
 //Points:
 Point(103) = {Rs, 0, 0, lc2};
 Point(104) = {-Rs, 0, 0, lc2};

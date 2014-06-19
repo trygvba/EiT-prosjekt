@@ -2,7 +2,7 @@ R=2;
 p = 0.667;
 Rs = (1+p/100)*R;
 
-lc1=0.5;
+lc1=0.7;
 // Inner sphere:
 //Points:
 Point(1) = {0, 0, 0, lc1};

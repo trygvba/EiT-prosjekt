@@ -1,4 +1,4 @@
-function [p, tri, tetr, szU, K1, K2, Amod, Mmod_inv, v,Fmat_up, Fmat_low, F_acc, lowerNodes, uz_low,upperNodes, uz_up,omega, dt, x_plates, y_plates] = Assembly_Membrane(GeoName,Phys_groups, E,v,rho,N, granularity)
+function [p, tri, tetr, szU, K1, K2, Amod, Mmod_inv, vel,Fmat_up, Fmat_low, F_acc, lowerNodes, uz_low,upperNodes, uz_up,omega, dt, x_plates, y_plates] = Assembly_Membrane(GeoName,Phys_groups, E,v,rho,N, granularity)
 
 disp('Starting assembly')
 %-----------ASSEMBLY:------------------------
@@ -39,7 +39,7 @@ disp('Modifying matrices according to boundary conditions')
 
     
 
-v=zeros(szU-length(upperNodes)-length(lowerNodes)-length(x_plates)-length(y_plates),1);
+vel=zeros(szU-length(upperNodes)-length(lowerNodes)-length(x_plates)-length(y_plates),1);
 
 
 %Getting out modified matrices:

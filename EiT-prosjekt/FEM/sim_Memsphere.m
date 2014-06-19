@@ -6,32 +6,32 @@ addpath(genpath('../Converters'));
 %Declaration of parameters:
 %Polymer:
 X = 1;%15*10^(-6); %Length scale.
-Phys_groups = [70,71,72];
-E = [1,1,1];%10^9*X;
-v = [0,0,0];
-rho = [100,1,100];%X^(3)*950;
+Phys_groups = [70,71,72, 133, 134];
+E = [1,1,1,1,1];%10^9*X;
+v = [0.1,0.1,0.1,0.1,0.1];
+rho = [1,1,1,1,100];%X^(3)*950;
 
-Meshname = 'MMembrane'; % I mesh-detail-rekkefølge: HQMemsphere,SMemSphere Membranewsphere
+Meshname = 'SMemSphere'; % I mesh-detail-rekkefølge: HQMemsphere,SMemSphere Membranewsphere
 
-harmonicMode = 4; % Harmonic mode (2n+1)
+harmonicMode = 6; % Harmonic mode (2n+1)
 ispulse = 1;
 
 %Parameters for Paraview printing:
-ExtraNameNote = 'T_';
+ExtraNameNote = 'halfpulse';
 
 modestring = sprintf('%d',harmonicMode);
 vtktitle = [Meshname '_' ExtraNameNote modestring(1:(min(3,length(modestring)))) ];
 if ispulse
-    vtktitle = [vtktitle 'p' num2str(ispulse)];
+    vtktitle = [vtktitle 'p'];
 end
 vtktitle
 
 output_folder = 'paraview/animation/Membrane';
-steps=314;    % Number of time steps.
+steps=100;    % Number of time steps.
 NumberOfPics = steps;
-granularity = 0.05;
+granularity = 0.15;
 OLT = 0.05;
-MarkerNode = 1591;
+MarkerNode = 779;
 
 
 
@@ -41,7 +41,7 @@ T0=0;                       %start time.
 tic
 [p, tri, tetr, szU, K1, K2, Amod, Mmod_inv, vel,Fmat_up, Fmat_low, F_acc, lowerNodes, uz_low,upperNodes, uz_up, omega, dt, x_plates, y_plates] = Assembly_Membrane(Meshname,Phys_groups, E,v,rho, harmonicMode, granularity);
 toc
-plateDisp = @(t) -OLT*((sin(omega*t))).*(ispulse*t<(2*pi/omega));
+plateDisp = @(t) -OLT*((sin(omega*t))).*(ispulse*t<(pi/omega));
 plateAcc = @(t) OLT*omega^2*sin(omega*t);
 
 wvel = omega/(harmonicMode*pi/4);
@@ -73,7 +73,7 @@ TimeIntegrator;
 %     Utemp_cur = K2*(Utemp_last+dt*vel-0.25*dt^2*K1*Utemp_last+0.25*dt^2*(Mmod_inv*(F_cur+F_last)));
 %     utemp = putDirichletBackV2(Utemp_cur,lowerNodes,upperNodes,uz_low,uz_up+plateDisp(t),x_plates,y_plates);
 %     U = utemp;
-%     Uz(:,i) = U(3:3:end);
+%     %Uz(:,i) = U(3:3:end);
 %     vel = vel+ 0.5*dt*(Mmod_inv*(F_cur+F_last))-0.5*dt*K1*(Utemp_cur+Utemp_last);
 %     Utemp_last = Utemp_cur;
 %     F_last = F_cur;

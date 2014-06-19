@@ -10,6 +10,7 @@ disp('Starting time integration')
 %       TIME INTEGRATION (NEWMARK)
 %------------------------------------------------
 n=1;
+Uz=zeros(szU/3,steps);
 
 %h = waitbar(0,'Pictures taken');
 tic
@@ -22,11 +23,22 @@ for i=1:steps
     Utemp_cur =  K2*(2*Utemp_last + dt*vel + (0.25*dt^2)*(Mmod_inv*(F_cur(t))))-Utemp_last;
     utemp = putDirichletBackV2(Utemp_cur,lowerNodes,upperNodes,uz_low,uz_up+plateDisp(t),x_plates,y_plates);
     U = utemp;
+    Uz(:,i) = U(3:3:end); % For transmisjonsregning
     vel = vel+ 0.5*dt*((Mmod_inv*(F_cur(t)))-(K1*(Utemp_cur+Utemp_last)));
     Utemp_last = Utemp_cur;
     %waitbar(i/steps);
 end
 toc
+TranNode = max(abs(Uz(MarkerNode,:)))/OLT;% Transmisjonskoeffisient
+
+TranDist = abs(Uz(find((abs(p(:,3))<0.1)),:))/OLT;
+TranMax = 1:size(TranDist,1);
+for i = 1:length(TranMax)
+    TranMax(i) = max(TranDist(i,:));
+end
+TranAvg = sum(TranMax)/length(TranMax);
+
+[TranNode; TranAvg; 2*sqrt(rho(1))/(sqrt(rho(1))+sqrt(rho(2)))]
 
 % tic
 % for i=1:1
