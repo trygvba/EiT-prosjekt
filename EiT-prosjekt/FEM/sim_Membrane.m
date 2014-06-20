@@ -7,17 +7,17 @@ addpath(genpath('../Converters'));
 %Polymer:
 X = 1;%15*10^(-6); %Length scale.
 Phys_groups = [70,71,72];
-E = [1,1,1];%10^9*X;
+E = 10^(9)*[90,1,90];%10^9*X;
 v = [0,0,0];
-rho = [100,1,100];%X^(3)*950;
+rho = [640,1,640];%X^(3)*950;
 
-Meshname = 'MMembrane'; % I mesh-detail-rekkefølge: HQMemsphere,SMemSphere Membranewsphere
+Meshname = 'QMembrane'; % I mesh-detail-rekkefølge: HQMemsphere,SMemSphere Membranewsphere
 
-harmonicMode = 4; % Harmonic mode (2n+1)
-ispulse = 1;
+harmonicMode = 10/4; % Harmonic mode (2n+1)
+ispulse = 1/2;
 
 %Parameters for Paraview printing:
-ExtraNameNote = 'T_';
+ExtraNameNote = 'omega_';
 
 modestring = sprintf('%d',harmonicMode);
 vtktitle = [Meshname '_' ExtraNameNote modestring(1:(min(3,length(modestring)))) ];
@@ -27,11 +27,10 @@ end
 vtktitle
 
 output_folder = 'paraview/animation/Membrane';
-steps=314;    % Number of time steps.
+steps=300;    % Number of time steps.
 NumberOfPics = steps;
-granularity = 0.05;
+granularity = 0.15;
 OLT = 0.05;
-MarkerNode = 1591;
 
 
 
@@ -42,11 +41,12 @@ tic
 [p, tri, tetr, szU, K1, K2, Amod, Mmod_inv, vel,Fmat_up, Fmat_low, F_acc, lowerNodes, uz_low,upperNodes, uz_up, omega, dt, x_plates, y_plates] = Assembly_Membrane(Meshname,Phys_groups, E,v,rho, harmonicMode, granularity);
 toc
 plateDisp = @(t) -OLT*((sin(omega*t))).*(ispulse*t<(2*pi/omega));
-plateAcc = @(t) OLT*omega^2*sin(omega*t);
+plateAcc = @(t) -omega^2*plateDisp(t);
 
 wvel = omega/(harmonicMode*pi/4);
 %AnalyticSolution = @(x,t) plateDisp(t+(x-1)/wvel) - plateDisp(t-(x+3)/wvel).*(wvel*t>=(x+3)) + plateDisp(t+(x-5)/wvel).*(wvel*t>=(5-x)) - plateDisp(t-(x+7)/wvel).*(wvel*t>=(7+x));
 
+MarkerNode = find(sum(p.^2,2)==min(sum(p.^2,2)));
 
 TimeIntegrator;
 % F_last = -Fmat_up*uz_up-Fmat_low*uz_low;

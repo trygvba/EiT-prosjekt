@@ -16,8 +16,8 @@ boundary = unique(tri);
 disp('Scaling time and frequency')
 szU=size(A,1);              %dimension of our system.
 maxz=max(p(:,3));     %Total radius of the ball with outer shell.
-lambdap = max(E)*max(v)/((1+max(v))*(1-2*max(v)));
-mup = max(E)/(2*(1+max(v)));
+lambdap = E(2)*(v(2))/((1+max(v))*(1-2*max(v)));
+mup = E(2)/(2*(1+max(v)));
 harmonicK = pi/(4*maxz); %Standing wave number with node at x such that kx = pi/2
 omega= N*harmonicK*sqrt((lambdap + 2*mup)/min(rho)); % Frequency of upperplate by w = kv. Coefficient should be an odd k-multiple for damping.
 dt = granularity/omega; % Timestep granularity
@@ -44,10 +44,10 @@ vel=zeros(szU-length(upperNodes)-length(lowerNodes)-length(x_plates)-length(y_pl
 
 %Getting out modified matrices:
 [Amod Mmod Fmat_up Fmat_low F_acc] = modifiedMatricesV3(A,M,upperNodes,lowerNodes, x_plates, y_plates);
-K1 = Mmod\Amod;
 I = eye(size(Amod,1));
-K2 = (I+(0.25*dt^2)*K1)\I;
 Mmod_inv = Mmod\I;
+K1 = Mmod_inv*Amod;
+K2 = (I+(0.25*dt^2)*K1)\I;
 
 disp('Assembly done')
 end

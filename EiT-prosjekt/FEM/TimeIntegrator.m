@@ -39,7 +39,7 @@ end
 TranAvg = sum(TranMax)/length(TranMax);
 
 [TranNode; TranAvg; 2*sqrt(rho(1))/(sqrt(rho(1))+sqrt(rho(2)))]
-
+plot(Uz(MarkerNode,:))
 % tic
 % for i=1:1
 % %     if i==1||(floor(NumberOfPics*i/steps)>floor(NumberOfPics*(i-1)/steps))
