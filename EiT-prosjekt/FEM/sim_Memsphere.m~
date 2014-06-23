@@ -9,12 +9,12 @@ X = 1;%15*10^(-6); %Length scale.
 Phys_groups = [70,71,72, 133, 134];
 E = [1,1,1,1,1];%10^9*X;
 v = [0.1,0.1,0.1,0.1,0.1];
-rho = [1,1,1,1,1];%X^(3)*950;
+rho = [1,0,1,1,100];%X^(3)*950;
 
 Meshname = 'Membramewsphere'; % I mesh-detail-rekkefølge: HQMemsphere,SMemSphere Membranewsphere
 
-harmonicMode = 1; % Harmonic mode (2n+1)
-ispulse = 0;
+harmonicMode = 3; % Harmonic mode (2n+1)
+ispulse = 1;
 
 %Parameters for Paraview printing:
 ExtraNameNote = 'halfpulse';
@@ -27,11 +27,11 @@ end
 vtktitle;
 
 output_folder = 'paraview/animation/Membrane';
-steps=512;    % Number of time steps.
+steps=400;    % Number of time steps.
 NumberOfPics = steps;
 granularity = 0.15;
 OLT = 0.05;
-MarkerNode = find(sum(p.^2,2)==min(sum(p.^2,2)));
+MarkerNode = ;
 
 
 

@@ -23,6 +23,10 @@ for i=1:steps
     Utemp_cur =  K2*(2*Utemp_last + dt*vel + (0.25*dt^2)*(Mmod_inv*(F_cur(t))))-Utemp_last;
     utemp = putDirichletBackV2(Utemp_cur,lowerNodes,upperNodes,uz_low,uz_up+plateDisp(t),x_plates,y_plates);
     U = utemp;
+    Ux(:,i) = U(1:3:end-2); % For transmisjonsregning
+
+    Uy(:,i) = U(2:3:end-1); % For transmisjonsregning
+
     Uz(:,i) = U(3:3:end); % For transmisjonsregning
     vel = vel+ 0.5*dt*((Mmod_inv*(F_cur(t)))-(K1*(Utemp_cur+Utemp_last)));
     Utemp_last = Utemp_cur;
