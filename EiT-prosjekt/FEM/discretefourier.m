@@ -1,22 +1,26 @@
-function [ max_freq, next_freq] = discretefourier( Uz,steps,dt,MarkerNode)
+function [F f] = discretefourier( Uz,steps,dt,MarkerNode)
 
 t=(0:steps-1)*dt;
 L=steps*dt;
 Fs=1/dt;
 
-NFFT = 2^nextpow2(steps*dt)
+NFFT = 2^nextpow2(steps);
 
 F=fft(Uz(MarkerNode,:),NFFT)/L;
 
-f = Fs/2*linspace(0,1,NFFT/2+1);
+f = pi*Fs*linspace(0,1,NFFT/2+1);
+
+%plot(f,abs(F(1:NFFT/2 +1)));
+F=abs(F(1:NFFT/2 +1));
 
 
-plot(f,abs(F(1:NFFT/2 +1)));
-absF=abs(F(1:NFFT/2 +1));
-
-max_freq=2*pi*f(absF==max(absF))
-i1=find(absF==max(absF));
-next_freq=2*pi*f((i1-1)+find(absF(i1:end)==max(absF(i1:end))));
-
+% s=sort(absF,'descend');
+% mf = 1:50;
+% for i = 1:50
+%     mf(i) = 2*pi*f(absF==s(i));
+% end
+% subplot(2,1,2)
+% plot(mf)
+ 
 end
 

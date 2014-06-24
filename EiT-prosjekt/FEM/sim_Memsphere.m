@@ -8,12 +8,12 @@ addpath(genpath('../Converters'));
 X = 1;%15*10^(-6); %Length scale.
 Phys_groups = [70,71,72, 133, 134];
 E = [1,1,1,1,1];%10^9*X;
-v = [0.1,0.1,0.1,0.1,0.1];
+v = [0,0,0,0,0];
 rho = [1,1,1,1,1];%X^(3)*950;
 
 Meshname = 'Membramewsphere'; % I mesh-detail-rekkefølge: HQMemsphere,SMemSphere Membranewsphere
 
-harmonicMode = 1; % Harmonic mode (2n+1)
+harmonicMode = 20; % Harmonic mode (2n+1)
 ispulse = 0;
 
 %Parameters for Paraview printing:
@@ -42,7 +42,7 @@ tic
 [p, tri, tetr, szU, K1, K2, Amod, Mmod_inv, vel,Fmat_up, Fmat_low, F_acc, lowerNodes, uz_low,upperNodes, uz_up, omega, dt, x_plates, y_plates] = Assembly_Membrane(Meshname,Phys_groups, E,v,rho, harmonicMode, granularity);
 toc
 plateDisp = @(t) -OLT*((sin(omega*t))).*(ispulse*t<(2*pi/omega));
-plateAcc = @(t) OLT*omega^2*sin(omega*t);
+plateAcc = @(t) OLT*plateDisp(t);
 
 wvel = omega/(harmonicMode*pi/4);
 %AnalyticSolution = @(x,t) plateDisp(t+(x-1)/wvel) - plateDisp(t-(x+3)/wvel).*(wvel*t>=(x+3)) + plateDisp(t+(x-5)/wvel).*(wvel*t>=(5-x)) - plateDisp(t-(x+7)/wvel).*(wvel*t>=(7+x));

@@ -7,14 +7,14 @@ addpath(genpath('../Converters'));
 %Polymer:
 X = 1;%15*10^(-6); %Length scale.
 Phys_groups = [70,71,72];
-E = 10^(9)*[90,1,90];%10^9*X;
+E = 10^(0)*[1,1,1];%10^9*X;
 v = [0,0,0];
-rho = [640,1,640];%X^(3)*950;
+rho = [1,.5,3];%X^(3)*950;
 
-Meshname = 'QMembrane'; % I mesh-detail-rekkefølge: HQMemsphere,SMemSphere Membranewsphere
+Meshname = 'UMembrane'; % I mesh-detail-rekkefølge: HQMemsphere,SMemSphere Membranewsphere
 
-harmonicMode = 10/4; % Harmonic mode (2n+1)
-ispulse = 1/2;
+harmonicMode = 10; % Harmonic mode (2n+1)
+ispulse = 1;
 
 %Parameters for Paraview printing:
 ExtraNameNote = 'omega_';
@@ -27,9 +27,9 @@ end
 vtktitle
 
 output_folder = 'paraview/animation/Membrane';
-steps=300;    % Number of time steps.
+steps=512;    % Number of time steps.
 NumberOfPics = steps;
-granularity = 0.15;
+granularity = 0.1;
 OLT = 0.05;
 
 

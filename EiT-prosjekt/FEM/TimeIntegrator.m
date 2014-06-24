@@ -11,7 +11,8 @@ disp('Starting time integration')
 %------------------------------------------------
 n=1;
 Uz=zeros(szU/3,steps);
-
+Ux=Uz;
+Uy=Uz;
 %h = waitbar(0,'Pictures taken');
 tic
 for i=1:steps
