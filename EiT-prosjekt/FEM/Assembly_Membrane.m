@@ -11,7 +11,7 @@ end
 [p, tri, tetr] = loadGeo(GeoName);
 boundary = unique(tri);
 [A, M] = MassAndStiffnessMatrixGeneral(tetr,p,C, rho, Phys_groups);%,Cs,rhop,rhos);
-
+spy(M)
 %--------------------------------------------
 disp('Scaling time and frequency')
 szU=size(A,1);              %dimension of our system.
