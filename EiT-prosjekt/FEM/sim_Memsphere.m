@@ -13,11 +13,16 @@ rho = [1,1,1,1,1];%X^(3)*950;
 
 Meshname = 'Membramewsphere'; % I mesh-detail-rekkefølge: HQMemsphere,SMemSphere Membranewsphere
 
+<<<<<<< HEAD
 harmonicMode = 20; % Harmonic mode (2n+1)
 ispulse = 0;
+=======
+harmonicMode = 1; % Harmonic mode (2n+1)
+ispulse = 1;
+>>>>>>> 636a7a69eef376a5f4ad75c44ca20ecdf83a1353
 
 %Parameters for Paraview printing:
-ExtraNameNote = 'halfpulse';
+ExtraNameNote = '';
 
 modestring = sprintf('%d',harmonicMode);
 vtktitle = [Meshname '_' ExtraNameNote modestring(1:(min(3,length(modestring)))) ];
@@ -27,9 +32,9 @@ end
 vtktitle;
 
 output_folder = 'paraview/animation/Membrane';
-steps=512;    % Number of time steps.
+steps=200;    % Number of time steps.
 NumberOfPics = steps;
-granularity = 0.15;
+granularity = 0.1;
 OLT = 0.05;
 MarkerNode = find(sum(p.^2,2)==min(sum(p.^2,2)));
 
@@ -42,11 +47,16 @@ tic
 [p, tri, tetr, szU, K1, K2, Amod, Mmod_inv, vel,Fmat_up, Fmat_low, F_acc, lowerNodes, uz_low,upperNodes, uz_up, omega, dt, x_plates, y_plates] = Assembly_Membrane(Meshname,Phys_groups, E,v,rho, harmonicMode, granularity);
 toc
 plateDisp = @(t) -OLT*((sin(omega*t))).*(ispulse*t<(2*pi/omega));
+<<<<<<< HEAD
 plateAcc = @(t) OLT*plateDisp(t);
+=======
+plateAcc = @(t) -omega^2*plateDisp(t);
+>>>>>>> 636a7a69eef376a5f4ad75c44ca20ecdf83a1353
 
 wvel = omega/(harmonicMode*pi/4);
 %AnalyticSolution = @(x,t) plateDisp(t+(x-1)/wvel) - plateDisp(t-(x+3)/wvel).*(wvel*t>=(x+3)) + plateDisp(t+(x-5)/wvel).*(wvel*t>=(5-x)) - plateDisp(t-(x+7)/wvel).*(wvel*t>=(7+x));
 
+MarkerNode = find(sum(p.^2,2)==min(sum(p.^2,2)));
 
 TimeIntegrator;
 % F_last = -Fmat_up*uz_up-Fmat_low*uz_low;
