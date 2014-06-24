@@ -9,7 +9,7 @@ X = 1;%15*10^(-6); %Length scale.
 Phys_groups = [70,71,72];
 E = 10^(0)*[1,1,1];%10^9*X;
 v = [0,0,0];
-rho = [1,.5,3];%X^(3)*950;
+rho = [4,.5,5];%X^(3)*950;
 
 Meshname = 'UMembrane'; % I mesh-detail-rekkefølge: HQMemsphere,SMemSphere Membranewsphere
 
