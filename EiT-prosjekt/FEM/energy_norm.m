@@ -1,20 +1,19 @@
-function [ e E E_analytic,DM] = energy_norm( tetr,ux,uy,uz,phys_groups,dt,steps,OLT,omega,p,wvel,rho_vec)
+function [ e, E, E_analytic,DM] = energy_norm( tetr,ux,uy,uz,phys_groups,dt,steps,OLT,omega,p,wvel,rho_vec)
 
 e=zeros(3,length(phys_groups));
-
+DM = zeros(1,length(phys_groups));
 for j=1:length(phys_groups)
     
     [Ux,Uy,Uz]=group_nodes(ux,uy,uz,tetr,phys_groups(j));
-    rho=rho_vec(j);
-    dm=node_density(phys_groups(j),tetr,p,rho);
-    size(dm)
+    %hold on %subplot(length(phys_groups),1,1)
+    dm=node_density(phys_groups(j),tetr,p,rho_vec(j));
+    %size(dm);
     DM(j)=sum(dm);
-    min(dm)
+    min(dm);
     for k=1:length(Ux(:,1))
         
         
         [Fx fx]=discretefourier(Ux,steps,dt,k);
-    
     
         e(1,j)=e(1,j)+dm(k)*sum((Fx.^2).*(fx.^2));
     
